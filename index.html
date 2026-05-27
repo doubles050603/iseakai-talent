@@ -10,13 +10,15 @@
 body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-height:100vh}
 .page{max-width:680px;margin:0 auto;padding:16px 16px 80px}
 
-.hero{border-radius:20px;background:#0f0820;border:1px solid #2a1660;margin-bottom:20px;padding:52px 28px 44px;text-align:center;position:relative;overflow:hidden}
-.hero-stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1px 1px at 10% 20%,rgba(200,180,255,.8) 0%,transparent 100%),radial-gradient(1px 1px at 25% 60%,rgba(180,220,255,.6) 0%,transparent 100%),radial-gradient(1px 1px at 40% 15%,rgba(255,255,200,.7) 0%,transparent 100%),radial-gradient(1px 1px at 55% 80%,rgba(200,255,220,.6) 0%,transparent 100%),radial-gradient(1px 1px at 70% 35%,rgba(220,180,255,.8) 0%,transparent 100%),radial-gradient(1px 1px at 85% 70%,rgba(180,230,255,.5) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 33% 42%,rgba(255,255,255,.9) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 78% 88%,rgba(255,255,255,.8) 0%,transparent 100%)}
+.hero{border-radius:20px;overflow:hidden;position:relative;background:#0f0820;margin-bottom:20px;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,4,24,0) 0%,rgba(8,4,24,.1) 35%,rgba(8,4,24,.65) 68%,rgba(8,4,24,.97) 100%)}
+.hero-text{position:relative;z-index:2;padding:24px 28px 36px;text-align:center}
 .h-badge{display:inline-block;background:rgba(120,70,220,.32);border:1px solid rgba(170,120,255,.45);color:#d4b8ff;font-size:11px;font-weight:500;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:.09em}
 .h-title{font-size:26px;font-weight:700;color:#f4eeff;line-height:1.4;margin-bottom:10px}
 .h-title em{color:#7effc0;font-style:normal}
-.h-sub{font-size:13px;color:rgba(210,195,240,.72);line-height:1.8;margin-bottom:22px}
-.h-cta{display:inline-block;background:#6a28c0;color:#fff;font-size:16px;font-weight:700;padding:14px 40px;border-radius:50px;border:none;cursor:pointer}
+.h-sub{font-size:13px;color:rgba(210,195,240,.75);line-height:1.8;margin-bottom:22px}
+.h-cta{display:inline-block;background:#6a28c0;color:#fff;font-size:16px;font-weight:700;padding:14px 40px;border-radius:50px;border:none;cursor:pointer;font-family:inherit}
 .h-cta:hover{opacity:.88}
 .h-hint{font-size:11px;color:rgba(180,155,225,.4);margin-top:10px}
 
@@ -69,10 +71,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .ptxt{font-size:11px;color:rgba(200,185,235,.3);white-space:nowrap;letter-spacing:.08em}
 
 .loading{text-align:center;padding:40px 20px}
-.orb{width:76px;height:76px;border-radius:50%;background:rgba(120,80,220,.2);border:2px solid #7a50d0;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px;animation:op 2.4s ease-in-out infinite}
+.orb{width:76px;height:76px;border-radius:50%;background:rgba(120,80,220,.2);border:2px solid #7a50d0;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px;animation:op 2.4s ease-in-out infinite;position:relative}
 @keyframes op{0%,100%{border-color:rgba(122,80,208,.45)}50%{border-color:#c0a0ff}}
+.orb::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(160,120,255,.22);animation:sp 4s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
 .ltitle{font-size:16px;font-weight:500;color:#f0e8ff;margin-bottom:8px}
-.lsub{font-size:13px;color:rgba(200,185,235,.55);line-height:1.6}
+.lsub{font-size:13px;color:rgba(200,185,235,.55)}
 
 .rc-box{background:#0a0618;border:1px solid #2a1660;border-radius:16px;padding:22px;text-align:center;margin-bottom:14px}
 .rc-badge{display:inline-block;background:rgba(100,60,200,.3);border:1px solid rgba(150,100,255,.4);color:#c8a8ff;font-size:11px;font-weight:500;padding:3px 14px;border-radius:20px;margin-bottom:10px}
@@ -101,7 +105,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .pfeats{list-style:none;text-align:left;margin-bottom:16px}
 .pfeats li{font-size:11px;color:rgba(200,185,235,.65);padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.45}
 .pfeats li::before{content:'✦';font-size:9px;color:#7a50d0;flex-shrink:0;margin-top:2px}
-.pbtn{width:100%;padding:10px 0;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #7a50d0;background:transparent;color:#c8a8ff;transition:all .2s;font-family:inherit}
+.pbtn{width:100%;padding:10px 0;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #7a50d0;background:transparent;color:#c8a8ff;font-family:inherit}
 .pcard.feat .pbtn{background:#7a50d0;color:#fff}
 .pbtn:disabled{opacity:.32;cursor:default}
 .pbtn.used{background:rgba(40,100,40,.25);color:#70d080;border-color:rgba(60,150,60,.35)}
@@ -119,7 +123,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .mpval{font-size:26px;font-weight:700;color:#f0e8ff}
 .mponce{font-size:11px;color:rgba(200,185,235,.35);margin-top:3px}
 .pmethods{display:flex;gap:8px;margin-bottom:14px}
-.pmethod{flex:1;padding:9px 4px;border-radius:10px;border:0.5px solid rgba(255,255,255,.14);background:transparent;cursor:pointer;font-size:12px;font-weight:500;color:rgba(200,185,235,.55);transition:all .15s;font-family:inherit}
+.pmethod{flex:1;padding:9px 4px;border-radius:10px;border:0.5px solid rgba(255,255,255,.14);background:transparent;cursor:pointer;font-size:12px;font-weight:500;color:rgba(200,185,235,.55);font-family:inherit}
 .pmethod.on{border-color:#7a50d0;color:#c8a8ff;background:rgba(100,60,200,.25)}
 .btn-confirm{width:100%;padding:13px;border-radius:20px;font-size:15px;font-weight:500;background:#7a50d0;color:#fff;border:none;cursor:pointer;margin-bottom:8px;font-family:inherit}
 .btn-cancel{width:100%;padding:10px;border-radius:20px;font-size:13px;background:transparent;border:0.5px solid rgba(255,255,255,.14);color:rgba(200,185,235,.5);cursor:pointer;font-family:inherit}
@@ -145,6 +149,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 
 @media(max-width:480px){
   .h-title{font-size:20px}
+  .hero{min-height:340px}
   .pricing-grid{grid-template-columns:1fr}
 }
 </style>
@@ -152,13 +157,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 <body>
 <div class="page">
 
+<!-- HERO — hero.png 를 같은 폴더에 업로드하면 이미지가 표시됩니다 -->
 <div class="hero">
-  <div class="hero-stars"></div>
-  <div class="h-badge">✦ 여신의 간택 — AI 재능 각성 시스템 ✦</div>
-  <h1 class="h-title">여신에게 간택받아<br>이세계로 넘어온 나,<br><em>어떤 재능을 가지고 있을까?</em></h1>
-  <p class="h-sub">마법진이 열리고 여신이 손을 내밀었습니다.<br>당신이 선택받은 이유 — AI가 분석해드립니다.</p>
-  <button class="h-cta" onclick="document.getElementById('svSec').scrollIntoView({behavior:'smooth'})">각성 테스트 시작하기 →</button>
-  <p class="h-hint">무료로 재능 맛보기 · 전체 분석은 각성석 1회 결제</p>
+  <img class="hero-img" src="hero.png" alt="여신에게 간택받아 이세계로 소환되는 장면"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <div class="h-badge">✦ 여신의 간택 — AI 재능 각성 시스템 ✦</div>
+    <h1 class="h-title">여신에게 간택받아<br>이세계로 넘어온 나,<br><em>어떤 재능을 가지고 있을까?</em></h1>
+    <p class="h-sub">마법진이 열리고 여신이 손을 내밀었습니다.<br>당신이 선택받은 이유 — AI가 분석해드립니다.</p>
+    <button class="h-cta" onclick="document.getElementById('svSec').scrollIntoView({behavior:'smooth'})">각성 테스트 시작하기 →</button>
+    <p class="h-hint">무료로 재능 맛보기 · 전체 분석은 각성석 1회 결제</p>
+  </div>
 </div>
 
 <div class="proof">
@@ -278,42 +287,35 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 
 </div>
 <script>
-const QS=[
-  {ph:'1단계',tx:'마법진 앞에 선 당신.\n직감적으로 무엇에 눈이 갑니까?',sub:'Q1 / 12',opts:[{l:'마법진의 구조와 문자 패턴',d:'논리적 분석, 시스템 이해',w:[1,3,0,0]},{l:'주변 사람들의 표정과 반응',d:'공감 능력, 대인관계',w:[0,0,1,3]},{l:'빛의 색감과 아름다운 조화',d:'미적 감각, 창의적 표현',w:[0,1,3,0]},{l:'이 현상이 어떤 결과를 낼지',d:'전략적 사고, 미래 지향',w:[2,1,0,1]}]},
-  {ph:'1단계',tx:'위기 상황에서 당신의\n첫 번째 행동은?',sub:'Q2 / 12',opts:[{l:'상황을 파악하고 계획을 세운다',d:'리더십, 문제 해결',w:[3,1,0,0]},{l:'두려운 사람들을 먼저 안심시킨다',d:'배려심, 심리적 지원',w:[0,0,3,1]},{l:'창의적인 새로운 해결책을 떠올린다',d:'창의성, 혁신적 사고',w:[0,1,1,2]},{l:'묵묵히 가장 힘든 역할을 맡는다',d:'실행력, 책임감',w:[1,2,0,1]}]},
-  {ph:'1단계',tx:'가장 오래 집중할 수\n있는 활동은?',sub:'Q3 / 12',opts:[{l:'코딩, 수식, 퍼즐 같은 논리 문제',d:'분석력·수리 재능',w:[0,3,0,1]},{l:'글쓰기, 그림, 음악 등 표현 활동',d:'창의·예술 재능',w:[0,1,0,3]},{l:'친구 고민 듣기, 상담, 가르치기',d:'공감·교육 재능',w:[0,1,3,0]},{l:'아이디어 기획, 설득, 리드하기',d:'전략·리더십 재능',w:[2,0,1,1]}]},
-  {ph:'2단계',tx:'파티에서 자연스럽게\n맡게 되는 역할은?',sub:'Q4 / 12',opts:[{l:'방향을 제시하는 리더',d:'"이건 네가 정해"를 자주 듣는 편',w:[3,1,0,0]},{l:'분위기를 살리는 무드메이커',d:'내가 있으면 분위기가 달라짐',w:[1,0,1,2]},{l:'갈등을 풀어주는 조율자',d:'싸움이 나면 중간에서 찾음',w:[0,1,3,0]},{l:'문제를 해결하는 브레인',d:'"너한테 물어보면 답이 나와"',w:[1,2,0,1]}]},
-  {ph:'2단계',tx:'친구들이 나에 대해\n가장 자주 하는 말은?',sub:'Q5 / 12',opts:[{l:'"분석이 정확해"',d:'논리력, 전문성 인정',w:[0,3,0,1]},{l:'"위로가 돼"',d:'공감력·신뢰 인정',w:[0,0,3,1]},{l:'"아이디어가 신선해"',d:'창의성·독창성 인정',w:[0,1,0,3]},{l:'"추진력이 있어"',d:'리더십·실행력 인정',w:[2,1,1,0]}]},
-  {ph:'2단계',tx:'새로운 문제를 만났을 때\n첫 반응은?',sub:'Q6 / 12',opts:[{l:'구조를 분해하고 원인을 찾는다',d:'분석적 접근',w:[0,3,1,0]},{l:'사람들과 이야기하며 공유한다',d:'협력적 접근',w:[0,1,3,0]},{l:'완전히 새로운 방식을 시도한다',d:'창의적 접근',w:[0,0,1,3]},{l:'일단 빠르게 실행하고 수정한다',d:'실행적 접근',w:[2,1,0,1]}]},
-  {ph:'2단계',tx:'10년 후 어떤 모습이\n가장 설레나요?',sub:'Q7 / 12',opts:[{l:'분야 최고 전문가로 인정받는 사람',d:'IT·연구·데이터·법 계열',w:[0,3,0,1]},{l:'내 작품으로 많은 사람을 감동시킴',d:'디자인·영상·음악·작가 계열',w:[0,1,0,3]},{l:'팀을 이끌며 세상에 임팩트를 남김',d:'창업·경영·컨설팅 계열',w:[3,1,0,0]},{l:'사람들 곁에서 진심으로 도움이 됨',d:'교육·상담·의료·복지 계열',w:[0,0,3,1]}]},
-  {ph:'3단계',msg:{tag:'✦ 시스템 메시지',txt:'<em>[ 능력치 측정 60% 완료. 핵심 동기 분석 시작. ]</em>'},tx:'무언가를 할 때\n가장 큰 동기는?',sub:'Q8 / 12 ★ 최종전직 분기 핵심',opts:[{l:'성과와 결과로 증명하고 싶다',d:'목표 지향, 실행형',w:[3,1,0,0]},{l:'변화를 만들고 새로운 걸 만들고 싶다',d:'혁신 지향, 창조형',w:[1,0,0,3]},{l:'사람들에게 인정받고 영향을 미치고 싶다',d:'영향력 지향, 설득형',w:[2,1,1,0]},{l:'사람들과 진심으로 연결되고 싶다',d:'관계 지향, 공감형',w:[0,0,3,1]}]},
-  {ph:'3단계',tx:'칭찬받을 때 가장\n기분 좋은 말은?',sub:'Q9 / 12',opts:[{l:'"역시 네 분석은 정교해"',d:'전문성·논리력 인정',w:[0,3,0,1]},{l:'"네 덕분에 분위기가 살았어"',d:'사회적 영향력 인정',w:[1,0,1,2]},{l:'"이런 아이디어 어떻게 떠올려?"',d:'창의성·독창성 인정',w:[0,1,0,3]},{l:'"네 말 들으면 마음이 편해져"',d:'공감력·신뢰 인정',w:[0,0,3,1]}]},
-  {ph:'3단계',tx:'혼자 있을 때\n자연스럽게 하는 것은?',sub:'Q10 / 12',opts:[{l:'정보 탐색하고 공부하기',d:'지식 욕구, 분석 본능',w:[0,3,0,1]},{l:'작품 만들기, 창작하기',d:'표현 욕구, 창작 본능',w:[0,0,0,4]},{l:'일기 쓰기, 감정 정리',d:'내면 탐색, 공감 본능',w:[0,0,4,0]},{l:'계획 세우기, 목표 정리',d:'성취 욕구, 리더십 본능',w:[3,0,0,1]}]},
-  {ph:'4단계',msg:{tag:'✦ 시스템 메시지',txt:'<em>[ 최종전직 분기점 진입. 마지막 두 질문이 클래스를 결정합니다. ]</em>'},tx:'당신이 가장 두려워하는\n것은?',sub:'Q11 / 12 ★ 최종전직 분기 핵심',opts:[{l:'틀리거나 실수하는 것',d:'완벽주의 → 전문성 재능 신호',w:[0,2,0,2]},{l:'나만 뒤처지는 것',d:'성취 욕구 → 리더십·경쟁 신호',w:[3,0,0,1]},{l:'사람들에게 상처를 주는 것',d:'공감·배려 → 교육·상담 신호',w:[0,0,3,1]},{l:'평범하게 살다가 끝나는 것',d:'창의성·도전 → 혁신·예술 신호',w:[1,0,0,3]}]},
-  {ph:'4단계',tx:'당신이 가장 자랑스러웠던\n순간은?',sub:'Q12 / 12 · 마지막 질문',opts:[{l:'어려운 문제를 혼자 해결했을 때',d:'분석력·자기신뢰',w:[0,3,0,1]},{l:'누군가를 진심으로 변화시켰을 때',d:'공감력·교육적 영향',w:[0,0,3,1]},{l:'내 창작물이 사람들에게 인정받았을 때',d:'창의력·자기표현',w:[0,1,0,3]},{l:'팀을 이끌어 목표를 달성했을 때',d:'리더십·실행력',w:[3,0,1,0]}]}
-];
-const CI={L:{e:'⚔️',n:'전략 군주형',desc:'사람과 자원을 움직여 목표를 달성하는 타고난 리더.\n비전을 제시하는 순간 주변이 따라옵니다.',t1:['영향력 설계',91,'#7a50d0'],t2:['전략적 직관',83,'#1D9E75'],rare:'상위 8%'},A:{e:'🔮',n:'분석 마법사형',desc:'복잡한 것을 구조화하고 논리로 연결하는 능력이 탁월합니다.\n남들이 보지 못하는 각도로 문제를 분해합니다.',t1:['논리 분석력',92,'#378ADD'],t2:['시스템 사고',78,'#7a50d0'],rare:'상위 11%'},E:{e:'💚',n:'공감 치유사형',desc:'사람의 마음을 읽고 진심으로 연결되는 능력이 탁월합니다.\n당신 곁에 있으면 사람들이 마음을 열고 위로받습니다.',t1:['감성 연결력',90,'#1D9E75'],t2:['정서 지능',80,'#7a50d0'],rare:'상위 9%'},C:{e:'🎨',n:'창조 예술가형',desc:'세상을 독창적 시각으로 보고 표현하는 능력이 탁월합니다.\n당신의 작품은 보는 사람의 감각을 흔드는 힘이 있습니다.',t1:['창의적 발상',91,'#D85A30'],t2:['시각적 표현',84,'#7a50d0'],rare:'상위 10%'}};
-const ADV={L:['제국 총사령관','혁신 설계자','카리스마 선동가','냉철한 전략가'],A:['오라클 아키텍트','정밀 공학자','공감 분석가','마법 공식 창조자'],E:['정신 대현자','교육 마법사','빛의 전령','조화의 수호자'],C:['세계관 창조자','브랜드 연금술사','감각의 연금술사','공감 스토리텔러']};
-const AXES=['L','A','E','C'];
-const PLABELS=['준비 중','본질 탐색 Q1','본질 탐색 Q2','본질 탐색 Q3','재능 각성 Q4','재능 각성 Q5','재능 각성 Q6','재능 각성 Q7','핵심 측정 Q8','핵심 측정 Q9','핵심 측정 Q10','최종 시험 Q11','최종 시험 Q12','분석 중...','각성 완료!'];
-const SKEY='isekai_v3';
-let cur=-1;
-const answers=new Array(12).fill(-1);
-const scores={L:0,A:0,E:0,C:0};
-let selPlan='basic',selMI=0;
+var QS=[{ph:'1단계',tx:'마법진 앞에 선 당신.\n직감적으로 무엇에 눈이 갑니까?',sub:'Q1 / 12',opts:[{l:'마법진의 구조와 문자 패턴',d:'논리적 분석, 시스템 이해',w:[1,3,0,0]},{l:'주변 사람들의 표정과 반응',d:'공감 능력, 대인관계',w:[0,0,1,3]},{l:'빛의 색감과 아름다운 조화',d:'미적 감각, 창의적 표현',w:[0,1,3,0]},{l:'이 현상이 어떤 결과를 낼지',d:'전략적 사고, 미래 지향',w:[2,1,0,1]}]},{ph:'1단계',tx:'위기 상황에서 당신의\n첫 번째 행동은?',sub:'Q2 / 12',opts:[{l:'상황을 파악하고 계획을 세운다',d:'리더십, 문제 해결',w:[3,1,0,0]},{l:'두려운 사람들을 먼저 안심시킨다',d:'배려심, 심리적 지원',w:[0,0,3,1]},{l:'창의적인 새로운 해결책을 떠올린다',d:'창의성, 혁신적 사고',w:[0,1,1,2]},{l:'묵묵히 가장 힘든 역할을 맡는다',d:'실행력, 책임감',w:[1,2,0,1]}]},{ph:'1단계',tx:'가장 오래 집중할 수\n있는 활동은?',sub:'Q3 / 12',opts:[{l:'코딩, 수식, 퍼즐 같은 논리 문제',d:'분석력·수리 재능',w:[0,3,0,1]},{l:'글쓰기, 그림, 음악 등 표현 활동',d:'창의·예술 재능',w:[0,1,0,3]},{l:'친구 고민 듣기, 상담, 가르치기',d:'공감·교육 재능',w:[0,1,3,0]},{l:'아이디어 기획, 설득, 리드하기',d:'전략·리더십 재능',w:[2,0,1,1]}]},{ph:'2단계',tx:'파티에서 자연스럽게\n맡게 되는 역할은?',sub:'Q4 / 12',opts:[{l:'방향을 제시하는 리더',d:'"이건 네가 정해"를 자주 듣는 편',w:[3,1,0,0]},{l:'분위기를 살리는 무드메이커',d:'내가 있으면 분위기가 달라짐',w:[1,0,1,2]},{l:'갈등을 풀어주는 조율자',d:'싸움이 나면 중간에서 찾음',w:[0,1,3,0]},{l:'문제를 해결하는 브레인',d:'"너한테 물어보면 답이 나와"',w:[1,2,0,1]}]},{ph:'2단계',tx:'친구들이 나에 대해\n가장 자주 하는 말은?',sub:'Q5 / 12',opts:[{l:'"분석이 정확해"',d:'논리력, 전문성 인정',w:[0,3,0,1]},{l:'"위로가 돼"',d:'공감력·신뢰 인정',w:[0,0,3,1]},{l:'"아이디어가 신선해"',d:'창의성·독창성 인정',w:[0,1,0,3]},{l:'"추진력이 있어"',d:'리더십·실행력 인정',w:[2,1,1,0]}]},{ph:'2단계',tx:'새로운 문제를 만났을 때\n첫 반응은?',sub:'Q6 / 12',opts:[{l:'구조를 분해하고 원인을 찾는다',d:'분석적 접근',w:[0,3,1,0]},{l:'사람들과 이야기하며 공유한다',d:'협력적 접근',w:[0,1,3,0]},{l:'완전히 새로운 방식을 시도한다',d:'창의적 접근',w:[0,0,1,3]},{l:'일단 빠르게 실행하고 수정한다',d:'실행적 접근',w:[2,1,0,1]}]},{ph:'2단계',tx:'10년 후 어떤 모습이\n가장 설레나요?',sub:'Q7 / 12',opts:[{l:'분야 최고 전문가로 인정받는 사람',d:'IT·연구·데이터·법 계열',w:[0,3,0,1]},{l:'내 작품으로 많은 사람을 감동시킴',d:'디자인·영상·음악·작가 계열',w:[0,1,0,3]},{l:'팀을 이끌며 세상에 임팩트를 남김',d:'창업·경영·컨설팅 계열',w:[3,1,0,0]},{l:'사람들 곁에서 진심으로 도움이 됨',d:'교육·상담·의료·복지 계열',w:[0,0,3,1]}]},{ph:'3단계',msg:{tag:'✦ 시스템 메시지',txt:'<em>[ 능력치 측정 60% 완료. 핵심 동기 분석 시작. ]</em>'},tx:'무언가를 할 때\n가장 큰 동기는?',sub:'Q8 / 12 ★ 최종전직 분기 핵심',opts:[{l:'성과와 결과로 증명하고 싶다',d:'목표 지향, 실행형',w:[3,1,0,0]},{l:'변화를 만들고 새로운 걸 만들고 싶다',d:'혁신 지향, 창조형',w:[1,0,0,3]},{l:'사람들에게 인정받고 영향을 미치고 싶다',d:'영향력 지향, 설득형',w:[2,1,1,0]},{l:'사람들과 진심으로 연결되고 싶다',d:'관계 지향, 공감형',w:[0,0,3,1]}]},{ph:'3단계',tx:'칭찬받을 때 가장\n기분 좋은 말은?',sub:'Q9 / 12',opts:[{l:'"역시 네 분석은 정교해"',d:'전문성·논리력 인정',w:[0,3,0,1]},{l:'"네 덕분에 분위기가 살았어"',d:'사회적 영향력 인정',w:[1,0,1,2]},{l:'"이런 아이디어 어떻게 떠올려?"',d:'창의성·독창성 인정',w:[0,1,0,3]},{l:'"네 말 들으면 마음이 편해져"',d:'공감력·신뢰 인정',w:[0,0,3,1]}]},{ph:'3단계',tx:'혼자 있을 때\n자연스럽게 하는 것은?',sub:'Q10 / 12',opts:[{l:'정보 탐색하고 공부하기',d:'지식 욕구, 분석 본능',w:[0,3,0,1]},{l:'작품 만들기, 창작하기',d:'표현 욕구, 창작 본능',w:[0,0,0,4]},{l:'일기 쓰기, 감정 정리',d:'내면 탐색, 공감 본능',w:[0,0,4,0]},{l:'계획 세우기, 목표 정리',d:'성취 욕구, 리더십 본능',w:[3,0,0,1]}]},{ph:'4단계',msg:{tag:'✦ 시스템 메시지',txt:'<em>[ 최종전직 분기점 진입. 마지막 두 질문이 클래스를 결정합니다. ]</em>'},tx:'당신이 가장 두려워하는\n것은?',sub:'Q11 / 12 ★ 최종전직 분기 핵심',opts:[{l:'틀리거나 실수하는 것',d:'완벽주의 → 전문성 재능 신호',w:[0,2,0,2]},{l:'나만 뒤처지는 것',d:'성취 욕구 → 리더십·경쟁 신호',w:[3,0,0,1]},{l:'사람들에게 상처를 주는 것',d:'공감·배려 → 교육·상담 신호',w:[0,0,3,1]},{l:'평범하게 살다가 끝나는 것',d:'창의성·도전 → 혁신·예술 신호',w:[1,0,0,3]}]},{ph:'4단계',tx:'당신이 가장 자랑스러웠던\n순간은?',sub:'Q12 / 12 · 마지막 질문',opts:[{l:'어려운 문제를 혼자 해결했을 때',d:'분석력·자기신뢰',w:[0,3,0,1]},{l:'누군가를 진심으로 변화시켰을 때',d:'공감력·교육적 영향',w:[0,0,3,1]},{l:'내 창작물이 사람들에게 인정받았을 때',d:'창의력·자기표현',w:[0,1,0,3]},{l:'팀을 이끌어 목표를 달성했을 때',d:'리더십·실행력',w:[3,0,1,0]}]}];
+var CI={L:{e:'⚔️',n:'전략 군주형',desc:'사람과 자원을 움직여 목표를 달성하는 타고난 리더.\n비전을 제시하는 순간 주변이 따라옵니다.',t1:['영향력 설계',91,'#7a50d0'],t2:['전략적 직관',83,'#1D9E75'],rare:'상위 8%'},A:{e:'🔮',n:'분석 마법사형',desc:'복잡한 것을 구조화하고 논리로 연결하는 능력이 탁월합니다.\n남들이 보지 못하는 각도로 문제를 분해합니다.',t1:['논리 분석력',92,'#378ADD'],t2:['시스템 사고',78,'#7a50d0'],rare:'상위 11%'},E:{e:'💚',n:'공감 치유사형',desc:'사람의 마음을 읽고 진심으로 연결되는 능력이 탁월합니다.\n당신 곁에 있으면 사람들이 마음을 열고 위로받습니다.',t1:['감성 연결력',90,'#1D9E75'],t2:['정서 지능',80,'#7a50d0'],rare:'상위 9%'},C:{e:'🎨',n:'창조 예술가형',desc:'세상을 독창적 시각으로 보고 표현하는 능력이 탁월합니다.\n당신의 작품은 보는 사람의 감각을 흔드는 힘이 있습니다.',t1:['창의적 발상',91,'#D85A30'],t2:['시각적 표현',84,'#7a50d0'],rare:'상위 10%'}};
+var ADV={L:['제국 총사령관','혁신 설계자','카리스마 선동가','냉철한 전략가'],A:['오라클 아키텍트','정밀 공학자','공감 분석가','마법 공식 창조자'],E:['정신 대현자','교육 마법사','빛의 전령','조화의 수호자'],C:['세계관 창조자','브랜드 연금술사','감각의 연금술사','공감 스토리텔러']};
+var AXES=['L','A','E','C'];
+var PLABELS=['준비 중','본질 탐색 Q1','본질 탐색 Q2','본질 탐색 Q3','재능 각성 Q4','재능 각성 Q5','재능 각성 Q6','재능 각성 Q7','핵심 측정 Q8','핵심 측정 Q9','핵심 측정 Q10','최종 시험 Q11','최종 시험 Q12','분석 중...','각성 완료!'];
+var SKEY='isekai_v3';
+var cur=-1;
+var answers=new Array(12).fill(-1);
+var scores={L:0,A:0,E:0,C:0};
+var selPlan='basic',selMI=0;
 
 function buildScreens(){
-  let h=`<div class="scr on" id="s-1"><div class="sbox"><span class="stag">✦ 시스템 메시지</span><p class="stxt"><em>[ 마법진이 반응합니다. 소환 의식을 시작합니다. ]</em><br>12개의 질문에 솔직하게 답할수록 각성 정밀도가 높아집니다.</p></div><button onclick="goTo(0)" style="width:100%;padding:13px;border-radius:20px;font-size:15px;font-weight:500;background:#7a50d0;color:#fff;border:none;cursor:pointer;font-family:inherit">의식 시작하기 →</button></div>`;
-  QS.forEach((q,i)=>{
-    const showPh=[0,3,7,10].includes(i);
-    h+=`<div class="scr" id="s${i}">`;
-    if(showPh) h+=`<div class="pdiv"><div class="pline"></div><span class="ptxt">${q.ph}</span><div class="pline"></div></div>`;
-    if(q.msg) h+=`<div class="sbox"><span class="stag">${q.msg.tag}</span><p class="stxt">${q.msg.txt}</p></div>`;
-    h+=`<p class="qtitle">${q.tx.replace(/\n/g,'<br>')}</p><p class="qsub">${q.sub}</p><div class="choices" id="c${i}">`;
-    q.opts.forEach((o,j)=>{h+=`<button class="cbtn" onclick="pick(${i},${j})"><span class="ckey">${['A','B','C','D'][j]}</span><div><p class="clabel">${o.l}</p><p class="cdesc">${o.d}</p></div></button>`;});
-    h+=`</div><div class="nav-row"><button class="nbk" onclick="goTo(${i-1})">←</button><button class="nnx" id="n${i}" onclick="goTo(${i===11?12:i+1})">${i===11?'각성 완료 →':'다음으로 →'}</button></div></div>`;
-  });
-  h+=`<div class="scr" id="s12"><div class="loading"><div class="orb">⚡</div><p class="ltitle">AI 각성 시스템 분석 중</p><p class="lsub" id="lsub">잠재 능력 신호 감지 중...</p></div></div>`;
+  var h='<div class="scr on" id="s-1"><div class="sbox"><span class="stag">✦ 시스템 메시지</span><p class="stxt"><em>[ 마법진이 반응합니다. 소환 의식을 시작합니다. ]</em><br>12개의 질문에 솔직하게 답할수록 각성 정밀도가 높아집니다.</p></div><button onclick="goTo(0)" style="width:100%;padding:13px;border-radius:20px;font-size:15px;font-weight:500;background:#7a50d0;color:#fff;border:none;cursor:pointer;font-family:inherit">의식 시작하기 →</button></div>';
+  for(var i=0;i<QS.length;i++){
+    var q=QS[i];
+    var showPh=[0,3,7,10].indexOf(i)>=0;
+    h+='<div class="scr" id="s'+i+'">';
+    if(showPh) h+='<div class="pdiv"><div class="pline"></div><span class="ptxt">'+q.ph+'</span><div class="pline"></div></div>';
+    if(q.msg) h+='<div class="sbox"><span class="stag">'+q.msg.tag+'</span><p class="stxt">'+q.msg.txt+'</p></div>';
+    h+='<p class="qtitle">'+q.tx.replace(/\n/g,'<br>')+'</p><p class="qsub">'+q.sub+'</p><div class="choices" id="c'+i+'">';
+    var keys=['A','B','C','D'];
+    for(var j=0;j<q.opts.length;j++){
+      h+='<button class="cbtn" onclick="pick('+i+','+j+')"><span class="ckey">'+keys[j]+'</span><div><p class="clabel">'+q.opts[j].l+'</p><p class="cdesc">'+q.opts[j].d+'</p></div></button>';
+    }
+    var nextTarget=i===11?12:i+1;
+    var nextLabel=i===11?'각성 완료 →':'다음으로 →';
+    h+='</div><div class="nav-row"><button class="nbk" onclick="goTo('+(i-1)+')">←</button><button class="nnx" id="n'+i+'" onclick="goTo('+nextTarget+')">'+nextLabel+'</button></div></div>';
+  }
+  h+='<div class="scr" id="s12"><div class="loading"><div class="orb">⚡</div><p class="ltitle">AI 각성 시스템 분석 중</p><p class="lsub" id="lsub">잠재 능력 신호 감지 중...</p></div></div>';
   document.getElementById('screens').innerHTML=h;
 }
 
@@ -321,14 +323,15 @@ function goTo(idx){
   document.getElementById('s'+cur).classList.remove('on');
   cur=idx;
   document.getElementById('s'+cur).classList.add('on');
-  const pct=cur<0?0:Math.round(((cur+1)/14)*100);
+  var pct=cur<0?0:Math.round(((cur+1)/14)*100);
   document.getElementById('pf').style.width=pct+'%';
   document.getElementById('pl').textContent=PLABELS[cur+1]||'';
   if(cur===12) startLoad();
 }
 
 function pick(qi,oi){
-  document.getElementById('c'+qi).querySelectorAll('.cbtn').forEach((b,i)=>b.classList.toggle('sel',i===oi));
+  var btns=document.getElementById('c'+qi).querySelectorAll('.cbtn');
+  for(var i=0;i<btns.length;i++) btns[i].classList.toggle('sel',i===oi);
   answers[qi]=oi;
   var nb=document.getElementById('n'+qi);
   if(nb) nb.classList.add('on');
@@ -340,21 +343,25 @@ function startLoad(){
   li2=0;
   lt2=setInterval(function(){
     li2++;
-    if(li2<steps.length) document.getElementById('lsub').textContent=steps[li2];
+    if(li2<steps.length){document.getElementById('lsub').textContent=steps[li2];}
     else{clearInterval(lt2);setTimeout(showResult,500);}
   },900);
 }
 
 function calcScores(){
   scores.L=scores.A=scores.E=scores.C=0;
-  answers.forEach(function(ans,qi){
-    if(ans<0) return;
-    var w=QS[qi].opts[ans].w;
+  for(var qi=0;qi<answers.length;qi++){
+    if(answers[qi]<0) continue;
+    var w=QS[qi].opts[answers[qi]].w;
     scores.L+=w[0];scores.A+=w[1];scores.E+=w[2];scores.C+=w[3];
-  });
+  }
 }
 
-function getTop(){return AXES.reduce(function(a,b){return scores[a]>=scores[b]?a:b;});}
+function getTop(){
+  var top='L';
+  for(var i=1;i<AXES.length;i++){if(scores[AXES[i]]>scores[top]) top=AXES[i];}
+  return top;
+}
 
 function getAdv(top){
   var q7=answers[7],q10=answers[10];
@@ -373,7 +380,7 @@ function showResult(){
   var adv=getAdv(top);
   document.getElementById('rcBox').innerHTML='<span class="rc-badge">✦ 각성 완료 — 클래스 판정</span><p class="rc-name">'+ci.e+' '+ci.n+'</p><p class="rc-desc">'+ci.desc.replace(/\n/g,'<br>')+'</p><div class="rc-pills"><span class="rc-pill">'+ci.rare+' 희귀 조합</span><span class="rc-pill lg">★ 전설 재능 보유</span></div>';
   document.getElementById('talentCard').innerHTML='<div class="trow"><span class="tname">'+ci.t1[0]+'</span><div class="ttrack"><div class="tfill" style="width:0%;background:'+ci.t1[2]+'" data-w="'+ci.t1[1]+'"></div></div><span class="tscore">'+ci.t1[1]+'</span></div><div class="trow"><span class="tname">'+ci.t2[0]+'</span><div class="ttrack"><div class="tfill" style="width:0%;background:'+ci.t2[2]+'" data-w="'+ci.t2[1]+'"></div></div><span class="tscore">'+ci.t2[1]+'</span></div><div class="blurred"><div class="trow"><span class="tname">핵심 재능 ★</span><div class="ttrack"><div class="tfill" style="width:96%;background:#7a50d0"></div></div><span class="tscore">96</span></div><div class="trow"><span class="tname">전설 재능</span><div class="ttrack"><div class="tfill" style="width:81%;background:#D85A30"></div></div><span class="tscore">81</span></div><div class="trow"><span class="tname">최종전직 키</span><div class="ttrack"><div class="tfill" style="width:65%;background:#BA7517"></div></div><span class="tscore">65</span></div></div>';
-  setTimeout(function(){document.querySelectorAll('.tfill[data-w]').forEach(function(el){el.style.width=el.dataset.w+'%';});},120);
+  setTimeout(function(){var els=document.querySelectorAll('.tfill[data-w]');for(var i=0;i<els.length;i++){els[i].style.width=els[i].dataset.w+'%';}},120);
   document.getElementById('resultArea').style.display='block';
   document.getElementById('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
   window._adv=adv;
@@ -385,7 +392,8 @@ function markPaid(p){try{localStorage.setItem(SKEY,'true');localStorage.setItem(
 
 function initPaid(){
   if(!isPaid()) return;
-  ['basicBtn','legendBtn'].forEach(function(id){var b=document.getElementById(id);if(b){b.textContent='결제 완료';b.classList.add('used');b.disabled=true;}});
+  var ids=['basicBtn','legendBtn'];
+  for(var i=0;i<ids.length;i++){var b=document.getElementById(ids[i]);if(b){b.textContent='결제 완료';b.classList.add('used');b.disabled=true;}}
   document.getElementById('successDiv').classList.add('on');
 }
 
@@ -402,7 +410,7 @@ function closeModal(){document.getElementById('modalBg').classList.remove('on');
 
 function selM(i){
   selMI=i;
-  [0,1,2].forEach(function(j){document.getElementById('pm'+j).classList.toggle('on',j===i);});
+  for(var j=0;j<3;j++){document.getElementById('pm'+j).classList.toggle('on',j===i);}
 }
 
 function confirmPay(){
@@ -418,7 +426,8 @@ function confirmPay(){
     document.getElementById('scDesc').textContent='결제가 완료되었습니다.\n전체 결과에서 최종전직 + 직업 매칭 + 로드맵을 확인하세요.';
     document.getElementById('successDiv').classList.add('on');
     document.getElementById('successDiv').scrollIntoView({behavior:'smooth',block:'center'});
-    ['basicBtn','legendBtn'].forEach(function(id){var b=document.getElementById(id);if(b){b.textContent=id==='legendBtn'&&selPlan==='legend'?'결제 완료':'이미 각성됨';b.classList.add('used');b.disabled=true;}});
+    var ids=['basicBtn','legendBtn'];
+    for(var i=0;i<ids.length;i++){var b=document.getElementById(ids[i]);if(b){b.textContent=ids[i]==='legendBtn'&&selPlan==='legend'?'결제 완료':'이미 각성됨';b.classList.add('used');b.disabled=true;}}
   },1800);
 }
 
