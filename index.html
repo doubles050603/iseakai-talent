@@ -10,19 +10,26 @@
 body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-height:100vh}
 .page{max-width:680px;margin:0 auto;padding:16px 16px 80px}
 
+/* HERO - 텍스트 가시성 개선 */
 .hero{border-radius:20px;overflow:hidden;position:relative;background:#0f0820;margin-bottom:20px;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,4,24,0) 0%,rgba(8,4,24,.1) 35%,rgba(8,4,24,.65) 68%,rgba(8,4,24,.97) 100%)}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,4,24,.15) 0%,rgba(8,4,24,.35) 30%,rgba(8,4,24,.78) 60%,rgba(8,4,24,.97) 100%)}
+/* 이미지 상단 추가 어둠 처리 */
+.hero-top-ov{position:absolute;top:0;left:0;right:0;height:55%;background:linear-gradient(to bottom,rgba(8,4,24,.5) 0%,transparent 100%)}
 .hero-text{position:relative;z-index:2;padding:24px 28px 36px;text-align:center}
-.h-badge{display:inline-block;background:rgba(120,70,220,.32);border:1px solid rgba(170,120,255,.45);color:#d4b8ff;font-size:11px;font-weight:500;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:.09em}
-.h-title{font-size:26px;font-weight:700;color:#f4eeff;line-height:1.4;margin-bottom:10px}
-.h-title em{color:#7effc0;font-style:normal}
-.h-sub{font-size:13px;color:rgba(210,195,240,.75);line-height:1.8;margin-bottom:22px}
-.h-cta{background:#6a28c0;color:#fff;font-size:16px;font-weight:700;padding:14px 40px;border-radius:50px;border:none;cursor:pointer;font-family:inherit}
-.h-hint{font-size:11px;color:rgba(180,155,225,.4);margin-top:10px}
+.h-badge{display:inline-block;background:rgba(120,70,220,.5);border:1px solid rgba(170,120,255,.6);color:#f0e0ff;font-size:11px;font-weight:700;padding:5px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:.09em;text-shadow:0 1px 4px rgba(0,0,0,.8)}
+.h-title{font-size:26px;font-weight:700;color:#fff;line-height:1.4;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,.95),0 0 30px rgba(0,0,0,.8)}
+.h-title em{color:#7effc0;font-style:normal;text-shadow:0 2px 12px rgba(0,0,0,.95),0 0 20px rgba(100,255,160,.4)}
+.h-sub{font-size:13px;color:rgba(255,255,255,.9);line-height:1.8;margin-bottom:22px;text-shadow:0 1px 8px rgba(0,0,0,.95),0 0 20px rgba(0,0,0,.8)}
+.h-cta{background:#6a28c0;color:#fff;font-size:16px;font-weight:700;padding:14px 40px;border-radius:50px;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(100,40,180,.6)}
+.h-cta:hover{opacity:.88}
+.h-hint{font-size:11px;color:rgba(255,255,255,.6);margin-top:10px;text-shadow:0 1px 4px rgba(0,0,0,.8)}
 
+/* PROOF - 실시간 카운터 */
 .proof{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 8px;margin-bottom:20px;flex-wrap:wrap}
-.pi{text-align:center;padding:0 14px}.pn{font-size:20px;font-weight:700;color:#f0e8ff}.pl{font-size:11px;color:rgba(200,185,235,.45);margin-top:2px}
+.pi{text-align:center;padding:0 14px}
+.pn{font-size:20px;font-weight:700;color:#f0e8ff}
+.pl{font-size:11px;color:rgba(200,185,235,.45);margin-top:2px}
 .pd{width:.5px;height:30px;background:rgba(255,255,255,.12)}
 
 .story-card{background:#0a0618;border:1px solid #2a1660;border-radius:16px;padding:22px 24px;margin-bottom:20px}
@@ -75,6 +82,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .ltitle{font-size:16px;font-weight:500;color:#f0e8ff;margin-bottom:8px}
 .lsub{font-size:13px;color:rgba(200,185,235,.55)}
 
+/* 결과 */
 .rc-box{background:#0a0618;border:1px solid #2a1660;border-radius:16px;padding:22px;text-align:center;margin-bottom:14px}
 .rc-badge{display:inline-block;background:rgba(100,60,200,.3);border:1px solid rgba(150,100,255,.4);color:#c8a8ff;font-size:11px;font-weight:500;padding:3px 14px;border-radius:20px;margin-bottom:10px}
 .rc-name{font-size:22px;font-weight:700;color:#f4eeff;margin-bottom:6px}
@@ -92,48 +100,73 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .tscore{font-size:11px;color:rgba(200,185,235,.55);min-width:24px;text-align:right}
 .blurred{filter:blur(4.5px);user-select:none;pointer-events:none}
 
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:14px}
-.pcard{background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 16px;position:relative;text-align:center}
-.pcard.feat{border:2px solid #7a50d0}
-.ppop{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#7a50d0;color:#fff;font-size:10px;font-weight:500;padding:3px 14px;border-radius:20px;white-space:nowrap}
-.ptier{font-size:11px;color:rgba(200,185,235,.42);margin-bottom:4px}
-.pamount{font-size:28px;font-weight:700;color:#f0e8ff;margin-bottom:4px}
-.pdesc2{font-size:11px;color:rgba(200,185,235,.42);margin-bottom:12px;line-height:1.5}
-.pfeats{list-style:none;text-align:left;margin-bottom:16px}
-.pfeats li{font-size:11px;color:rgba(200,185,235,.65);padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.45}
-.pfeats li::before{content:'✦';font-size:9px;color:#7a50d0;flex-shrink:0;margin-top:2px}
-.pbtn{width:100%;padding:10px 0;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #7a50d0;background:transparent;color:#c8a8ff;font-family:inherit;transition:all .2s}
-.pcard.feat .pbtn{background:#7a50d0;color:#fff}
-.pbtn:disabled{opacity:.32;cursor:default}
-.pbtn.used{background:rgba(40,100,40,.25);color:#70d080;border-color:rgba(60,150,60,.35)}
-
-.once-bar{background:rgba(100,60,200,.12);border:0.5px solid rgba(140,90,255,.2);border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.once-bar p{font-size:12px;color:rgba(200,185,235,.65);line-height:1.6}
-.once-bar strong{color:#f0e8ff}
+/* 단일 결제 상품 카드 */
+.pay-single{background:rgba(255,255,255,.04);border:2px solid #7a50d0;border-radius:20px;padding:28px 24px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden}
+.pay-single::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7a50d0,#1D9E75,#7a50d0)}
+.pay-single-badge{display:inline-block;background:#7a50d0;color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:.06em}
+.pay-single-name{font-size:20px;font-weight:700;color:#f0e8ff;margin-bottom:6px}
+.pay-price-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px}
+.pay-orig{font-size:16px;color:rgba(200,185,235,.4);text-decoration:line-through}
+.pay-now{font-size:36px;font-weight:700;color:#f0e8ff}
+.pay-discount-badge{background:#D85A30;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.pay-limited{font-size:12px;color:rgba(200,185,235,.5);margin-bottom:20px}
+.pay-feats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px;text-align:left}
+.pay-feat-item{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(200,185,235,.75)}
+.pay-feat-item::before{content:'✦';font-size:9px;color:#7a50d0;flex-shrink:0}
+.btn-pay-main{width:100%;padding:16px;border-radius:20px;font-size:17px;font-weight:700;background:linear-gradient(135deg,#6a28c0,#1D9E75);color:#fff;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(100,40,180,.4);margin-bottom:10px}
+.btn-pay-main:hover{opacity:.9}
+.btn-pay-main:disabled{opacity:.35;cursor:default}
+.btn-pay-main.used{background:rgba(40,100,40,.4);box-shadow:none}
+.pay-once-notice{font-size:11px;color:rgba(200,185,235,.4)}
 
 /* 결제 모달 */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:100;align-items:center;justify-content:center;padding:16px}
 .modal-bg.on{display:flex}
 .modal{background:#120828;border:0.5px solid rgba(140,90,255,.35);border-radius:20px;padding:28px 24px;width:100%;max-width:360px}
-.modal-title{font-size:16px;font-weight:700;color:#f0e8ff;margin-bottom:6px;text-align:center}
-.modal-sub{font-size:13px;color:rgba(200,185,235,.6);margin-bottom:20px;line-height:1.6;text-align:center}
-.modal-price-box{background:rgba(255,255,255,.06);border-radius:12px;padding:16px;margin-bottom:20px;text-align:center}
-.modal-price-label{font-size:12px;color:rgba(200,185,235,.4);margin-bottom:4px}
+.modal-title{font-size:16px;font-weight:700;color:#f0e8ff;margin-bottom:16px;text-align:center}
+.modal-price-box{background:rgba(255,255,255,.06);border-radius:12px;padding:16px;margin-bottom:16px;text-align:center}
+.modal-orig{font-size:13px;color:rgba(200,185,235,.4);text-decoration:line-through;margin-bottom:2px}
 .modal-price-val{font-size:28px;font-weight:700;color:#f0e8ff}
-.modal-price-once{font-size:11px;color:rgba(200,185,235,.35);margin-top:4px}
-.pay-methods-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px}
+.modal-price-save{display:inline-block;background:#D85A30;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin-top:4px}
+.modal-price-once{font-size:11px;color:rgba(200,185,235,.35);margin-top:6px}
+.pay-methods-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
 .pay-method-btn{padding:12px 6px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);cursor:pointer;text-align:center;font-family:inherit;transition:all .18s}
-.pay-method-btn:hover{border-color:#7a50d0;background:rgba(100,60,200,.2)}
+.pay-method-btn:hover{border-color:#7a50d0}
 .pay-method-btn.active{border-color:#7a50d0;background:rgba(100,60,200,.3)}
 .pay-method-icon{font-size:20px;display:block;margin-bottom:4px}
 .pay-method-name{font-size:11px;font-weight:500;color:rgba(200,185,235,.7)}
 .pay-method-btn.active .pay-method-name{color:#c8a8ff}
+.pay-notice{background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;margin-bottom:14px}
+.pay-notice p{font-size:11px;color:rgba(200,185,235,.5);line-height:1.65}
+.pay-notice a{color:rgba(150,120,255,.8);text-decoration:underline;cursor:pointer}
 .btn-pay-confirm{width:100%;padding:14px;border-radius:20px;font-size:15px;font-weight:700;background:#7a50d0;color:#fff;border:none;cursor:pointer;margin-bottom:10px;font-family:inherit}
 .btn-pay-cancel{width:100%;padding:11px;border-radius:20px;font-size:13px;background:transparent;border:0.5px solid rgba(255,255,255,.15);color:rgba(200,185,235,.5);cursor:pointer;font-family:inherit}
 
-.pay-notice{background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;margin-bottom:16px}
-.pay-notice p{font-size:11px;color:rgba(200,185,235,.5);line-height:1.65}
-.pay-notice a{color:rgba(150,120,255,.8);text-decoration:underline;cursor:pointer}
+/* 전체공개 결과 섹션 */
+.full-result{display:none;margin-top:16px}
+.full-result.on{display:block}
+.job-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:14px}
+.jcard{background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:12px;padding:14px}
+.jcard.top{border-color:#7a50d0;border-width:1.5px}
+.jtop-badge{display:inline-block;background:rgba(100,60,200,.3);color:#c8a8ff;font-size:10px;font-weight:500;padding:2px 10px;border-radius:20px;margin-bottom:6px}
+.jtitle{font-size:14px;font-weight:500;color:#f0e8ff;margin-bottom:3px}
+.jmatch{font-size:12px;color:#9070d0;font-weight:500;margin-bottom:5px}
+.jtags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.jtag{font-size:10px;background:rgba(120,80,220,.2);color:#b090e0;padding:2px 8px;border-radius:20px}
+.jdesc{font-size:11px;color:rgba(200,185,235,.55);line-height:1.5}
+.road-card{background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;margin-bottom:14px}
+.rstep{display:flex;gap:14px;margin-bottom:16px}
+.rstep:last-child{margin-bottom:0}
+.rdot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.rline{width:1px;background:rgba(255,255,255,.1);margin:4px 0;flex:1}
+.rleft{display:flex;flex-direction:column;align-items:center}
+.rperiod{font-size:11px;color:rgba(200,185,235,.38);margin-bottom:3px}
+.rtitle{font-size:13px;font-weight:500;color:#f0e8ff;margin-bottom:3px}
+.rdesc{font-size:11px;color:rgba(200,185,235,.55);line-height:1.5}
+.subclass-card{background:#0a0618;border:1px solid #2a1660;border-radius:12px;padding:16px;margin-bottom:14px}
+.subclass-title{font-size:13px;font-weight:500;color:#c8a8ff;margin-bottom:8px}
+.subclass-tags{display:flex;flex-wrap:wrap;gap:6px}
+.subclass-tag{font-size:12px;padding:4px 12px;border-radius:20px;border:0.5px solid}
 
 .success{display:none;background:#081a10;border:1px solid #2a6030;border-radius:16px;padding:26px 22px;text-align:center;margin-bottom:24px}
 .success.on{display:block}
@@ -152,7 +185,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .rvt{font-size:12px;color:rgba(200,185,235,.6);line-height:1.65;margin-bottom:8px}
 .rvu{font-size:11px;color:rgba(200,185,235,.3)}
 
-/* 법적 필수 정보 푸터 */
 .footer{border-top:0.5px solid rgba(255,255,255,.08);padding-top:24px;margin-top:8px}
 .footer-biz{background:rgba(255,255,255,.03);border-radius:10px;padding:16px;margin-bottom:16px}
 .footer-biz p{font-size:11px;color:rgba(200,185,235,.45);line-height:1.9}
@@ -161,7 +193,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .footer-links a{font-size:11px;color:rgba(150,120,255,.7);text-decoration:underline;cursor:pointer}
 .footer-copy{font-size:11px;color:rgba(200,185,235,.25);text-align:center}
 
-/* 약관 모달 */
 .terms-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .terms-modal.on{display:flex}
 .terms-box{background:#0f0820;border:0.5px solid rgba(140,90,255,.25);border-radius:16px;padding:24px;width:100%;max-width:600px;margin:auto}
@@ -171,7 +202,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .terms-close{width:100%;padding:11px;border-radius:20px;font-size:14px;font-weight:500;background:#7a50d0;color:#fff;border:none;cursor:pointer;margin-top:16px;font-family:inherit}
 
 #resultArea{display:none;margin-top:16px}
-@media(max-width:480px){.h-title{font-size:20px}.hero{min-height:340px}.pricing-grid{grid-template-columns:1fr}.pay-methods-grid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:480px){.h-title{font-size:20px}.hero{min-height:340px}.pay-feats-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -179,6 +210,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 
 <div class="hero">
   <img class="hero-img" src="hero.png" alt="여신에게 간택받아 이세계로 소환되는 장면"/>
+  <div class="hero-top-ov"></div>
   <div class="hero-ov"></div>
   <div class="hero-text">
     <div class="h-badge">✦ 여신의 간택 — AI 재능 각성 시스템 ✦</div>
@@ -190,7 +222,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 </div>
 
 <div class="proof">
-  <div class="pi"><p class="pn">18,400+</p><p class="pl">간택된 용사</p></div>
+  <div class="pi"><p class="pn" id="counterNum">18,400</p><p class="pl">간택된 용사</p></div>
   <div class="pd"></div>
   <div class="pi"><p class="pn">4.9★</p><p class="pl">평균 만족도</p></div>
   <div class="pd"></div>
@@ -227,55 +259,64 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 </div>
 <div id="screens"></div>
 
+<!-- 기본 결과 (무료 공개) -->
 <div id="resultArea">
   <p class="slabel">각성 결과</p>
   <div class="rc-box" id="rcBox"></div>
   <p class="slabel">능력치 분석</p>
   <div class="talent-card" id="talentCard"></div>
-  <div style="background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;margin-bottom:16px;text-align:center">
-    <p style="font-size:12px;color:rgba(200,185,235,.5);margin-bottom:10px">나머지 재능 3개 + 최종전직 + 직업 매칭은 각성석으로 잠금 해제</p>
-    <button onclick="document.getElementById('pricingSec').scrollIntoView({behavior:'smooth'})" style="padding:10px 28px;border-radius:20px;font-size:14px;font-weight:500;background:#7a50d0;color:#fff;border:none;cursor:pointer;font-family:inherit">⚡ 각성석으로 전체 공개 →</button>
+
+  <!-- 결제 유도 박스 -->
+  <div id="paySection">
+    <p class="slabel" id="pricingSec">각성석 — 지금만 특가</p>
+    <div class="pay-single">
+      <div class="pay-single-badge">⚡ 출시 기념 한정 특가</div>
+      <p class="pay-single-name">각성석 ✦ 전체 공개</p>
+      <div class="pay-price-wrap">
+        <span class="pay-orig">9,900원</span>
+        <span class="pay-now">3,900원</span>
+        <span class="pay-discount-badge">61% OFF</span>
+      </div>
+      <p class="pay-limited">✦ 1인 1회 한정 · 결제 후 영구 저장</p>
+      <div class="pay-feats-grid">
+        <span class="pay-feat-item">16종 최종전직 확정</span>
+        <span class="pay-feat-item">숨겨진 재능 5개 전체</span>
+        <span class="pay-feat-item">현실 직업군 매칭 3개</span>
+        <span class="pay-feat-item">부클래스 2개 매칭</span>
+        <span class="pay-feat-item">단계별 성장 로드맵</span>
+        <span class="pay-feat-item">직업 크로스오버 조합</span>
+        <span class="pay-feat-item">공유 능력치 카드</span>
+        <span class="pay-feat-item">6개월 후 재분석 비교</span>
+      </div>
+      <button class="btn-pay-main" id="mainPayBtn" onclick="openPayModal()">⚡ 지금 각성하기 — 3,900원</button>
+      <p class="pay-once-notice">🛡 1인 1회 원칙 · 카카오페이 · 네이버페이 · 신용카드</p>
+    </div>
   </div>
 </div>
 
-<p class="slabel" id="pricingSec">각성석 상점 — 1인 1회 한정</p>
-<div class="pricing-grid">
-  <div class="pcard">
-    <p class="ptier">무료 스크롤</p><p class="pamount">0원</p>
-    <p class="pdesc2">소환 의식 + 재능 2개</p>
-    <ul class="pfeats"><li>기본 클래스 판정</li><li>능력치 2개 공개</li><li>재능 카테고리 힌트</li></ul>
-    <button class="pbtn" onclick="document.getElementById('svSec').scrollIntoView({behavior:'smooth'})">테스트 시작</button>
-  </div>
-  <div class="pcard feat">
-    <div class="ppop">가장 많이 선택</div>
-    <p class="ptier">각성석 ✦</p><p class="pamount">3,900원</p>
-    <p class="pdesc2">최종전직 + 전체 분석</p>
-    <ul class="pfeats"><li>16종 최종전직 확정</li><li>숨겨진 재능 5개</li><li>직업군 매칭 3개</li><li>성장 로드맵 PDF</li><li>공유 능력치 카드</li></ul>
-    <button class="pbtn" id="basicBtn" onclick="openPayModal('basic',3900)">각성하기</button>
-  </div>
-  <div class="pcard">
-    <p class="ptier">전설 각성석 ✦✦</p><p class="pamount">9,900원</p>
-    <p class="pdesc2">최종전직 + 부클래스 조합</p>
-    <ul class="pfeats"><li>각성석 혜택 전부</li><li>부클래스 2개 매칭</li><li>직업 크로스오버</li><li>친구 1명 무료 초대</li><li>6개월 후 재분석</li></ul>
-    <button class="pbtn" id="legendBtn" onclick="openPayModal('legend',9900)">전설 각성</button>
-  </div>
-</div>
-
-<div class="once-bar">
-  <span style="font-size:18px;flex-shrink:0">🛡</span>
-  <p><strong>1인 1회 결제 원칙</strong> — 각성석은 계정당 한 번만 구매 가능합니다. 결제 후 결과는 영구 저장됩니다.</p>
-</div>
-
+<!-- 결제 완료 후 전체공개 결과 -->
 <div class="success" id="successDiv">
   <div class="sico">✨</div>
   <p class="sti2">각성 완료 — 최종전직 판정됨</p>
-  <p class="ssub">결제가 완료되었습니다.<br>AI가 당신의 최종전직을 판정했습니다.</p>
+  <p class="ssub">결제가 완료되었습니다.<br>당신의 최종전직과 전체 분석 결과를 공개합니다.</p>
   <div class="sclass">
-    <p class="scbadge">✦ 최종전직 확정 · 1회 결제 완료</p>
+    <p class="scbadge">✦ 최종전직 확정 · 각성석 사용 완료</p>
     <p class="scname" id="scName">—</p>
     <p class="scdesc" id="scDesc">—</p>
   </div>
-  <button class="btn-view" onclick="document.getElementById('resultArea').scrollIntoView({behavior:'smooth'})">전체 결과 보기 →</button>
+  <button class="btn-view" onclick="showFullResult()">전체 결과 보기 →</button>
+</div>
+
+<!-- 전체 공개 결과 섹션 -->
+<div class="full-result" id="fullResult">
+  <p class="slabel">직업 운명서 — 전체 공개</p>
+  <div class="job-grid" id="jobGrid"></div>
+
+  <p class="slabel">부클래스 조합</p>
+  <div class="subclass-card" id="subclassCard"></div>
+
+  <p class="slabel">성장 로드맵 — 4단계 전체</p>
+  <div class="road-card" id="roadCard"></div>
 </div>
 
 <p class="slabel">용사들의 후기</p>
@@ -285,17 +326,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
   <div class="rv"><p class="rvs">★★★★☆</p><p class="rvt">"최종전직 개념이 너무 좋고 친구들한테 다 공유했어요."</p><p class="rvu">— 이소연, 21세</p></div>
 </div>
 
-<!-- 법적 필수 정보 푸터 (PG 심사 필수) -->
 <div class="footer">
   <div class="footer-biz">
     <p>
-      <strong>상호명</strong> 셀럽<br>
-      <strong>서비스명</strong> 이세계에서재능발견<br>
+      <strong>상호명</strong> 이세계에서재능발견 &nbsp;|&nbsp;
       <strong>대표자</strong> 이은비<br>
-      <strong>사업자등록번호</strong> 886-18-01577<br>
+      <strong>사업자등록번호</strong> 886-18-01577 &nbsp;|&nbsp;
       <strong>통신판매업신고번호</strong> 제2026-부산동래-0344호<br>
       <strong>사업장 소재지</strong> 부산시 동래구 명륜로 170<br>
-      <strong>고객센터</strong> kdw8808@kakao.com<br>
+      <strong>고객센터</strong> kdw8808@kakao.com &nbsp;|&nbsp;
       <strong>개인정보관리책임자</strong> 이은비
     </p>
   </div>
@@ -306,17 +345,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
   </div>
   <p class="footer-copy">© 2026 이세계에서재능발견. All rights reserved.</p>
 </div>
-
-</div><!-- /page -->
+</div>
 
 <!-- 결제 모달 -->
 <div class="modal-bg" id="payModal">
   <div class="modal">
-    <p class="modal-title" id="modalTitle">각성석 결제</p>
-    <p class="modal-sub">결제 수단을 선택해주세요</p>
+    <p class="modal-title">각성석 결제</p>
     <div class="modal-price-box">
-      <p class="modal-price-label">결제 금액</p>
-      <p class="modal-price-val" id="modalPrice">3,900원</p>
+      <p class="modal-orig">정가 9,900원</p>
+      <p class="modal-price-val">3,900원</p>
+      <span class="modal-price-save">6,000원 할인 적용</span>
       <p class="modal-price-once">✦ 1인 1회 한정 · 결과 영구 저장</p>
     </div>
     <div class="pay-methods-grid">
@@ -334,40 +372,71 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
       </button>
     </div>
     <div class="pay-notice">
-      <p>
-        결제 진행 시 <a onclick="openTerms('service')">이용약관</a> 및 <a onclick="openTerms('privacy')">개인정보처리방침</a>에 동의하는 것으로 간주됩니다.<br>
-        디지털 콘텐츠 특성상 결제 완료 후 <a onclick="openTerms('refund')">환불정책</a>을 확인해주세요.
-      </p>
+      <p>결제 진행 시 <a onclick="openTerms('service')">이용약관</a> 및 <a onclick="openTerms('privacy')">개인정보처리방침</a>에 동의합니다.<br>
+      디지털 콘텐츠 특성상 결제 후 <a onclick="openTerms('refund')">환불정책</a>을 확인해주세요.</p>
     </div>
-    <button class="btn-pay-confirm" id="payConfirmBtn" onclick="requestPay()">결제하기</button>
+    <button class="btn-pay-confirm" onclick="requestPay()">3,900원 결제하기</button>
     <button class="btn-pay-cancel" onclick="closePayModal()">취소</button>
   </div>
 </div>
 
-<!-- 이용약관 모달 -->
+<!-- 약관 모달 -->
 <div class="terms-modal" id="termsModal">
   <div class="terms-box">
-    <h2 id="termsTitle">이용약관</h2>
+    <h2 id="termsTitle"></h2>
     <div id="termsContent"></div>
     <button class="terms-close" onclick="closeTerms()">확인</button>
   </div>
 </div>
 
 <script>
-/* ========== 설문 데이터 ========== */
+/* ===== 설문 데이터 ===== */
 var QS=[{ph:'1단계',tx:'마법진 앞에 선 당신.\n직감적으로 무엇에 눈이 갑니까?',sub:'Q1 / 12',opts:[{l:'마법진의 구조와 문자 패턴',d:'논리적 분석, 시스템 이해',w:[1,3,0,0]},{l:'주변 사람들의 표정과 반응',d:'공감 능력, 대인관계',w:[0,0,1,3]},{l:'빛의 색감과 아름다운 조화',d:'미적 감각, 창의적 표현',w:[0,1,3,0]},{l:'이 현상이 어떤 결과를 낼지',d:'전략적 사고, 미래 지향',w:[2,1,0,1]}]},{ph:'1단계',tx:'위기 상황에서 당신의\n첫 번째 행동은?',sub:'Q2 / 12',opts:[{l:'상황을 파악하고 계획을 세운다',d:'리더십, 문제 해결',w:[3,1,0,0]},{l:'두려운 사람들을 먼저 안심시킨다',d:'배려심, 심리적 지원',w:[0,0,3,1]},{l:'창의적인 새로운 해결책을 떠올린다',d:'창의성, 혁신적 사고',w:[0,1,1,2]},{l:'묵묵히 가장 힘든 역할을 맡는다',d:'실행력, 책임감',w:[1,2,0,1]}]},{ph:'1단계',tx:'가장 오래 집중할 수\n있는 활동은?',sub:'Q3 / 12',opts:[{l:'코딩, 수식, 퍼즐 같은 논리 문제',d:'분석력·수리 재능',w:[0,3,0,1]},{l:'글쓰기, 그림, 음악 등 표현 활동',d:'창의·예술 재능',w:[0,1,0,3]},{l:'친구 고민 듣기, 상담, 가르치기',d:'공감·교육 재능',w:[0,1,3,0]},{l:'아이디어 기획, 설득, 리드하기',d:'전략·리더십 재능',w:[2,0,1,1]}]},{ph:'2단계',tx:'파티에서 자연스럽게\n맡게 되는 역할은?',sub:'Q4 / 12',opts:[{l:'방향을 제시하는 리더',d:'"이건 네가 정해"를 자주 듣는 편',w:[3,1,0,0]},{l:'분위기를 살리는 무드메이커',d:'내가 있으면 분위기가 달라짐',w:[1,0,1,2]},{l:'갈등을 풀어주는 조율자',d:'싸움이 나면 중간에서 찾음',w:[0,1,3,0]},{l:'문제를 해결하는 브레인',d:'"너한테 물어보면 답이 나와"',w:[1,2,0,1]}]},{ph:'2단계',tx:'친구들이 나에 대해\n가장 자주 하는 말은?',sub:'Q5 / 12',opts:[{l:'"분석이 정확해"',d:'논리력, 전문성 인정',w:[0,3,0,1]},{l:'"위로가 돼"',d:'공감력·신뢰 인정',w:[0,0,3,1]},{l:'"아이디어가 신선해"',d:'창의성·독창성 인정',w:[0,1,0,3]},{l:'"추진력이 있어"',d:'리더십·실행력 인정',w:[2,1,1,0]}]},{ph:'2단계',tx:'새로운 문제를 만났을 때\n첫 반응은?',sub:'Q6 / 12',opts:[{l:'구조를 분해하고 원인을 찾는다',d:'분석적 접근',w:[0,3,1,0]},{l:'사람들과 이야기하며 공유한다',d:'협력적 접근',w:[0,1,3,0]},{l:'완전히 새로운 방식을 시도한다',d:'창의적 접근',w:[0,0,1,3]},{l:'일단 빠르게 실행하고 수정한다',d:'실행적 접근',w:[2,1,0,1]}]},{ph:'2단계',tx:'10년 후 어떤 모습이\n가장 설레나요?',sub:'Q7 / 12',opts:[{l:'분야 최고 전문가로 인정받는 사람',d:'IT·연구·데이터·법 계열',w:[0,3,0,1]},{l:'내 작품으로 많은 사람을 감동시킴',d:'디자인·영상·음악·작가 계열',w:[0,1,0,3]},{l:'팀을 이끌며 세상에 임팩트를 남김',d:'창업·경영·컨설팅 계열',w:[3,1,0,0]},{l:'사람들 곁에서 진심으로 도움이 됨',d:'교육·상담·의료·복지 계열',w:[0,0,3,1]}]},{ph:'3단계',msg:{tag:'✦ 시스템 메시지',txt:'<em>[ 능력치 측정 60% 완료. 핵심 동기 분석 시작. ]</em>'},tx:'무언가를 할 때\n가장 큰 동기는?',sub:'Q8 / 12 ★ 최종전직 분기 핵심',opts:[{l:'성과와 결과로 증명하고 싶다',d:'목표 지향, 실행형',w:[3,1,0,0]},{l:'변화를 만들고 새로운 걸 만들고 싶다',d:'혁신 지향, 창조형',w:[1,0,0,3]},{l:'사람들에게 인정받고 영향을 미치고 싶다',d:'영향력 지향, 설득형',w:[2,1,1,0]},{l:'사람들과 진심으로 연결되고 싶다',d:'관계 지향, 공감형',w:[0,0,3,1]}]},{ph:'3단계',tx:'칭찬받을 때 가장\n기분 좋은 말은?',sub:'Q9 / 12',opts:[{l:'"역시 네 분석은 정교해"',d:'전문성·논리력 인정',w:[0,3,0,1]},{l:'"네 덕분에 분위기가 살았어"',d:'사회적 영향력 인정',w:[1,0,1,2]},{l:'"이런 아이디어 어떻게 떠올려?"',d:'창의성·독창성 인정',w:[0,1,0,3]},{l:'"네 말 들으면 마음이 편해져"',d:'공감력·신뢰 인정',w:[0,0,3,1]}]},{ph:'3단계',tx:'혼자 있을 때\n자연스럽게 하는 것은?',sub:'Q10 / 12',opts:[{l:'정보 탐색하고 공부하기',d:'지식 욕구, 분석 본능',w:[0,3,0,1]},{l:'작품 만들기, 창작하기',d:'표현 욕구, 창작 본능',w:[0,0,0,4]},{l:'일기 쓰기, 감정 정리',d:'내면 탐색, 공감 본능',w:[0,0,4,0]},{l:'계획 세우기, 목표 정리',d:'성취 욕구, 리더십 본능',w:[3,0,0,1]}]},{ph:'4단계',msg:{tag:'✦ 시스템 메시지',txt:'<em>[ 최종전직 분기점 진입. 마지막 두 질문이 클래스를 결정합니다. ]</em>'},tx:'당신이 가장 두려워하는\n것은?',sub:'Q11 / 12 ★ 최종전직 분기 핵심',opts:[{l:'틀리거나 실수하는 것',d:'완벽주의 → 전문성 재능 신호',w:[0,2,0,2]},{l:'나만 뒤처지는 것',d:'성취 욕구 → 리더십·경쟁 신호',w:[3,0,0,1]},{l:'사람들에게 상처를 주는 것',d:'공감·배려 → 교육·상담 신호',w:[0,0,3,1]},{l:'평범하게 살다가 끝나는 것',d:'창의성·도전 → 혁신·예술 신호',w:[1,0,0,3]}]},{ph:'4단계',tx:'당신이 가장 자랑스러웠던\n순간은?',sub:'Q12 / 12 · 마지막 질문',opts:[{l:'어려운 문제를 혼자 해결했을 때',d:'분석력·자기신뢰',w:[0,3,0,1]},{l:'누군가를 진심으로 변화시켰을 때',d:'공감력·교육적 영향',w:[0,0,3,1]},{l:'내 창작물이 사람들에게 인정받았을 때',d:'창의력·자기표현',w:[0,1,0,3]},{l:'팀을 이끌어 목표를 달성했을 때',d:'리더십·실행력',w:[3,0,1,0]}]}];
 
-var CI={L:{e:'⚔️',n:'전략 군주형',desc:'사람과 자원을 움직여 목표를 달성하는 타고난 리더.\n비전을 제시하는 순간 주변이 따라옵니다.',t1:['영향력 설계',91,'#7a50d0'],t2:['전략적 직관',83,'#1D9E75'],rare:'상위 8%'},A:{e:'🔮',n:'분석 마법사형',desc:'복잡한 것을 구조화하고 논리로 연결하는 능력이 탁월합니다.\n남들이 보지 못하는 각도로 문제를 분해합니다.',t1:['논리 분석력',92,'#378ADD'],t2:['시스템 사고',78,'#7a50d0'],rare:'상위 11%'},E:{e:'💚',n:'공감 치유사형',desc:'사람의 마음을 읽고 진심으로 연결되는 능력이 탁월합니다.\n당신 곁에 있으면 사람들이 마음을 열고 위로받습니다.',t1:['감성 연결력',90,'#1D9E75'],t2:['정서 지능',80,'#7a50d0'],rare:'상위 9%'},C:{e:'🎨',n:'창조 예술가형',desc:'세상을 독창적 시각으로 보고 표현하는 능력이 탁월합니다.\n당신의 작품은 보는 사람의 감각을 흔드는 힘이 있습니다.',t1:['창의적 발상',91,'#D85A30'],t2:['시각적 표현',84,'#7a50d0'],rare:'상위 10%'}};
-var ADV={L:['제국 총사령관','혁신 설계자','카리스마 선동가','냉철한 전략가'],A:['오라클 아키텍트','정밀 공학자','공감 분석가','마법 공식 창조자'],E:['정신 대현자','교육 마법사','빛의 전령','조화의 수호자'],C:['세계관 창조자','브랜드 연금술사','감각의 연금술사','공감 스토리텔러']};
+var CI={
+  L:{e:'⚔️',n:'전략 군주형',desc:'사람과 자원을 움직여 목표를 달성하는 타고난 리더.\n비전을 제시하는 순간 주변이 따라옵니다.',t1:['영향력 설계',91,'#7a50d0'],t2:['전략적 직관',83,'#1D9E75'],rare:'상위 8%',
+    adv:'혁신 설계자',advDesc:'기존 구조를 깨고 새로운 시스템을 만드는 창업가형 리더.',
+    jobs:[{t:'프로덕트 매니저',m:'94%',tags:['IT','전략','리더십'],d:'사람과 기술을 연결해 제품을 만드는 역할',top:true},{t:'경영 컨설턴트',m:'88%',tags:['전략','분석'],d:'조직의 문제를 진단하고 해결책을 제시하는 역할',top:false},{t:'스타트업 창업가',m:'85%',tags:['창업','혁신'],d:'새로운 가치를 만들어내는 혁신가',top:false}],
+    sub1:{n:'분석 마법사형',bg:'#081828',c:'#80c8ff'},sub2:{n:'창조 예술가형',bg:'#1a0e08',c:'#f0b060'},
+    road:[{p:'지금 ~ 6개월',t:'재능 인식 & 기반 다지기',d:'영향력 설계 재능을 의식적으로 사용하는 연습. 작은 그룹에서 리더 역할 맡기, 기획서 써보기 시작.',c:'#EEEDFE',tc:'#3C3489'},{p:'6개월 ~ 1년',t:'핵심 스킬 집중 개발',d:'PM 직군 스킬(기획·데이터 분석·커뮤니케이션) 집중 학습. 사이드 프로젝트 1개 리드.',c:'#E1F5EE',tc:'#085041'},{p:'1년 ~ 3년',t:'포트폴리오 & 커리어 런칭',d:'실전 프로젝트로 증명하고 첫 커리어 기회 확보. 네트워킹과 브랜딩 시작.',c:'#FAEEDA',tc:'#633806'},{p:'3년 이후',t:'혁신 설계자로 각성',d:'당신만의 영향력으로 업계에서 인정받는 단계. 팀을 이끌고 새로운 시스템을 설계합니다.',c:'rgba(120,80,220,.2)',tc:'#c8a8ff'}]},
+  A:{e:'🔮',n:'분석 마법사형',desc:'복잡한 것을 구조화하고 논리로 연결하는 능력이 탁월합니다.\n남들이 보지 못하는 각도로 문제를 분해합니다.',t1:['논리 분석력',92,'#378ADD'],t2:['시스템 사고',78,'#7a50d0'],rare:'상위 11%',
+    adv:'오라클 아키텍트',advDesc:'데이터와 패턴으로 미래를 예측하고 시스템을 설계하는 AI 시대의 핵심 클래스.',
+    jobs:[{t:'데이터 사이언티스트',m:'93%',tags:['AI','데이터','분석'],d:'데이터로 인사이트를 발굴하는 핵심 직업',top:true},{t:'소프트웨어 엔지니어',m:'87%',tags:['개발','기술'],d:'복잡한 시스템을 설계하고 구현하는 역할',top:false},{t:'UX 리서처',m:'82%',tags:['리서치','분석'],d:'사용자 행동 데이터를 분석해 제품을 개선',top:false}],
+    sub1:{n:'전략 군주형',bg:'#0f0820',c:'#c8a8ff'},sub2:{n:'공감 치유사형',bg:'#081a10',c:'#70d890'},
+    road:[{p:'지금 ~ 6개월',t:'논리 기반 다지기',d:'Python 또는 통계 기초 학습. 데이터 분석 프로젝트 1개 완성하기.',c:'#EEEDFE',tc:'#3C3489'},{p:'6개월 ~ 1년',t:'전문 스킬 구축',d:'머신러닝 / 시스템 설계 심화 학습. 캐글 또는 오픈소스 기여 시작.',c:'#E1F5EE',tc:'#085041'},{p:'1년 ~ 3년',t:'전문가 포지셔닝',d:'포트폴리오 구축 및 커리어 전환. 기술 블로그나 발표로 전문성 공개.',c:'#FAEEDA',tc:'#633806'},{p:'3년 이후',t:'오라클 아키텍트로 각성',d:'분야 내 핵심 의사결정자로 성장. AI 시대를 이끄는 전문가가 됩니다.',c:'rgba(120,80,220,.2)',tc:'#c8a8ff'}]},
+  E:{e:'💚',n:'공감 치유사형',desc:'사람의 마음을 읽고 진심으로 연결되는 능력이 탁월합니다.\n당신 곁에 있으면 사람들이 마음을 열고 위로받습니다.',t1:['감성 연결력',90,'#1D9E75'],t2:['정서 지능',80,'#7a50d0'],rare:'상위 9%',
+    adv:'정신 대현자',advDesc:'인간 심리와 감정의 가장 깊은 곳을 이해하고 치유하는 최고위 공감자.',
+    jobs:[{t:'상담 심리사',m:'95%',tags:['심리','공감','치유'],d:'사람의 내면을 이해하고 성장을 돕는 직업',top:true},{t:'교육 전문가',m:'88%',tags:['교육','코칭'],d:'사람의 가능성을 끌어내는 교육자',top:false},{t:'HR 전문가',m:'83%',tags:['조직','문화'],d:'사람과 조직을 연결하는 문화 설계자',top:false}],
+    sub1:{n:'창조 예술가형',bg:'#1a0e08',c:'#f0b060'},sub2:{n:'전략 군주형',bg:'#0f0820',c:'#c8a8ff'},
+    road:[{p:'지금 ~ 6개월',t:'공감 능력 의식화',d:'심리학 기초 학습, 적극적 경청 연습. 주변 사람 1명을 진심으로 코칭해보기.',c:'#EEEDFE',tc:'#3C3489'},{p:'6개월 ~ 1년',t:'전문 자격 취득 준비',d:'상담심리사 / 코치 / HRD 자격증 준비. 실습 경험 쌓기.',c:'#E1F5EE',tc:'#085041'},{p:'1년 ~ 3년',t:'현장 경험 축적',d:'실전 상담 또는 교육 현장에서 경험 쌓기. 나만의 방법론 개발.',c:'#FAEEDA',tc:'#633806'},{p:'3년 이후',t:'정신 대현자로 각성',d:'분야 내 신뢰받는 전문가로 성장. 치유와 성장의 아이콘이 됩니다.',c:'rgba(120,80,220,.2)',tc:'#c8a8ff'}]},
+  C:{e:'🎨',n:'창조 예술가형',desc:'세상을 독창적 시각으로 보고 표현하는 능력이 탁월합니다.\n당신의 작품은 보는 사람의 감각을 흔드는 힘이 있습니다.',t1:['창의적 발상',91,'#D85A30'],t2:['시각적 표현',84,'#7a50d0'],rare:'상위 10%',
+    adv:'세계관 창조자',advDesc:'완전히 새로운 세계와 이야기를 만들어내는 최고위 창작자. IP와 문화 산업을 이끄는 전설 클래스.',
+    jobs:[{t:'크리에이티브 디렉터',m:'92%',tags:['창의','디자인','전략'],d:'브랜드와 콘텐츠의 방향을 결정하는 직업',top:true},{t:'콘텐츠 크리에이터',m:'88%',tags:['콘텐츠','표현'],d:'자신만의 세계관으로 사람들을 끌어모으는 직업',top:false},{t:'UX 디자이너',m:'84%',tags:['디자인','경험'],d:'감각적이고 직관적인 경험을 설계하는 직업',top:false}],
+    sub1:{n:'전략 군주형',bg:'#0f0820',c:'#c8a8ff'},sub2:{n:'공감 치유사형',bg:'#081a10',c:'#70d890'},
+    road:[{p:'지금 ~ 6개월',t:'창작 루틴 만들기',d:'매일 창작물 하나씩. 인스타·노션·브런치에 작품 공개 시작.',c:'#EEEDFE',tc:'#3C3489'},{p:'6개월 ~ 1년',t:'포트폴리오 완성',d:'10개 이상의 완성된 작품으로 나만의 스타일 정립. 브랜딩 시작.',c:'#E1F5EE',tc:'#085041'},{p:'1년 ~ 3년',t:'커리어 전환 & 수익화',d:'프리랜서 또는 취업으로 첫 수익. 클라이언트 경험 축적.',c:'#FAEEDA',tc:'#633806'},{p:'3년 이후',t:'세계관 창조자로 각성',d:'나만의 IP와 세계관으로 문화를 만드는 창작자. 업계의 아이콘이 됩니다.',c:'rgba(120,80,220,.2)',tc:'#c8a8ff'}]}
+};
+
 var AXES=['L','A','E','C'];
 var PLABELS=['준비 중','본질 탐색 Q1','본질 탐색 Q2','본질 탐색 Q3','재능 각성 Q4','재능 각성 Q5','재능 각성 Q6','재능 각성 Q7','핵심 측정 Q8','핵심 측정 Q9','핵심 측정 Q10','최종 시험 Q11','최종 시험 Q12','분석 중...','각성 완료!'];
-var SKEY='isekai_v3';
+var SKEY='isekai_v4';
 var cur=-1;
 var answers=new Array(12).fill(-1);
 var scores={L:0,A:0,E:0,C:0};
-var curPlan='basic', curAmount=3900, curPayMethod='카카오페이';
+var curPayMethod='카카오페이';
+var currentTop='L';
 
-/* ========== 설문 빌드 ========== */
+/* ===== 실시간 카운터 ===== */
+function startCounter(){
+  var base=18400;
+  var el=document.getElementById('counterNum');
+  setInterval(function(){
+    var rand=Math.random();
+    if(rand>0.7) base+=Math.floor(Math.random()*3)+1;
+    el.textContent=base.toLocaleString();
+  },8000);
+}
+
+/* ===== 설문 빌드 ===== */
 function buildScreens(){
   var h='<div class="scr on" id="s-1"><div class="sbox"><span class="stag">✦ 시스템 메시지</span><p class="stxt"><em>[ 마법진이 반응합니다. 소환 의식을 시작합니다. ]</em><br>12개의 질문에 솔직하게 답할수록 각성 정밀도가 높아집니다.</p></div><button onclick="goTo(0)" style="width:100%;padding:13px;border-radius:20px;font-size:15px;font-weight:500;background:#7a50d0;color:#fff;border:none;cursor:pointer;font-family:inherit">의식 시작하기 →</button></div>';
   for(var i=0;i<QS.length;i++){
@@ -390,8 +459,7 @@ function buildScreens(){
 
 function goTo(idx){
   document.getElementById('s'+cur).classList.remove('on');
-  cur=idx;
-  document.getElementById('s'+cur).classList.add('on');
+  cur=idx; document.getElementById('s'+cur).classList.add('on');
   var pct=cur<0?0:Math.round(((cur+1)/14)*100);
   document.getElementById('pf').style.width=pct+'%';
   document.getElementById('pl').textContent=PLABELS[cur+1]||'';
@@ -402,8 +470,7 @@ function pick(qi,oi){
   var btns=document.getElementById('c'+qi).querySelectorAll('.cbtn');
   for(var i=0;i<btns.length;i++) btns[i].classList.toggle('sel',i===oi);
   answers[qi]=oi;
-  var nb=document.getElementById('n'+qi);
-  if(nb) nb.classList.add('on');
+  var nb=document.getElementById('n'+qi); if(nb) nb.classList.add('on');
 }
 
 var li2=0,lt2;
@@ -411,8 +478,7 @@ function startLoad(){
   var steps=['잠재 능력 신호 감지 중...','재능 클래스 매핑 중...','희귀 패턴 대조 중...','분기 조건 확인 중...','최종전직 판정 완료'];
   li2=0;
   lt2=setInterval(function(){
-    li2++;
-    if(li2<steps.length){document.getElementById('lsub').textContent=steps[li2];}
+    li2++; if(li2<steps.length){document.getElementById('lsub').textContent=steps[li2];}
     else{clearInterval(lt2);setTimeout(showResult,500);}
   },900);
 }
@@ -426,121 +492,122 @@ function calcScores(){
   }
 }
 function getTop(){var top='L';for(var i=1;i<AXES.length;i++){if(scores[AXES[i]]>scores[top]) top=AXES[i];}return top;}
-function getAdv(top){var q7=answers[7],q10=answers[10],idx=3;if(top==='L'){idx=q7===0&&q10===1?0:q7===1&&q10===3?1:q7===2?2:3;}else if(top==='A'){idx=q7===0&&q10===0?0:q10===1?1:answers[4]===1?2:3;}else if(top==='E'){idx=q7===3&&q10===3?0:q10===2?1:answers[9]===2?2:3;}else if(top==='C'){idx=q7===1&&q10===3?0:q10===2?1:answers[9]===2?2:3;}return ADV[top][idx];}
+function getAdv(top){var q7=answers[7],q10=answers[10],idx=3;if(top==='L'){idx=q7===0&&q10===1?0:q7===1&&q10===3?1:q7===2?2:3;}else if(top==='A'){idx=q7===0&&q10===0?0:q10===1?1:answers[4]===1?2:3;}else if(top==='E'){idx=q7===3&&q10===3?0:q10===2?1:answers[9]===2?2:3;}else if(top==='C'){idx=q7===1&&q10===3?0:q10===2?1:answers[9]===2?2:3;}return idx;}
 
 function showResult(){
   calcScores();
-  var top=getTop(),ci=CI[top],adv=getAdv(top);
+  var top=getTop(); currentTop=top;
+  var ci=CI[top];
   document.getElementById('rcBox').innerHTML='<span class="rc-badge">✦ 각성 완료 — 클래스 판정</span><p class="rc-name">'+ci.e+' '+ci.n+'</p><p class="rc-desc">'+ci.desc.replace(/\n/g,'<br>')+'</p><div class="rc-pills"><span class="rc-pill">'+ci.rare+' 희귀 조합</span><span class="rc-pill lg">★ 전설 재능 보유</span></div>';
   document.getElementById('talentCard').innerHTML='<div class="trow"><span class="tname">'+ci.t1[0]+'</span><div class="ttrack"><div class="tfill" style="width:0%;background:'+ci.t1[2]+'" data-w="'+ci.t1[1]+'"></div></div><span class="tscore">'+ci.t1[1]+'</span></div><div class="trow"><span class="tname">'+ci.t2[0]+'</span><div class="ttrack"><div class="tfill" style="width:0%;background:'+ci.t2[2]+'" data-w="'+ci.t2[1]+'"></div></div><span class="tscore">'+ci.t2[1]+'</span></div><div class="blurred"><div class="trow"><span class="tname">핵심 재능 ★</span><div class="ttrack"><div class="tfill" style="width:96%;background:#7a50d0"></div></div><span class="tscore">96</span></div><div class="trow"><span class="tname">전설 재능</span><div class="ttrack"><div class="tfill" style="width:81%;background:#D85A30"></div></div><span class="tscore">81</span></div><div class="trow"><span class="tname">최종전직 키</span><div class="ttrack"><div class="tfill" style="width:65%;background:#BA7517"></div></div><span class="tscore">65</span></div></div>';
   setTimeout(function(){var els=document.querySelectorAll('.tfill[data-w]');for(var i=0;i<els.length;i++){els[i].style.width=els[i].dataset.w+'%';}},120);
   document.getElementById('resultArea').style.display='block';
   document.getElementById('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
-  window._adv=adv; window._base=ci.e+' '+ci.n;
+  if(isPaid()) showFullResult();
 }
 
-/* ========== 결제 ========== */
+/* ===== 전체공개 결과 ===== */
+function showFullResult(){
+  var ci=CI[currentTop];
+  document.getElementById('paySection').style.display='none';
+  document.getElementById('successDiv').classList.remove('on');
+
+  // 직업 카드
+  var jh='';
+  for(var i=0;i<ci.jobs.length;i++){
+    var j=ci.jobs[i];
+    jh+='<div class="jcard'+(j.top?' top':'')+'">'+
+      (j.top?'<span class="jtop-badge">★ 최적 매칭</span>':'')+
+      '<p class="jtitle">'+j.t+'</p><p class="jmatch">재능 일치율 '+j.m+'</p>'+
+      '<div class="jtags">'+j.tags.map(function(t){return '<span class="jtag">'+t+'</span>';}).join('')+'</div>'+
+      '<p class="jdesc">'+j.d+'</p></div>';
+  }
+  document.getElementById('jobGrid').innerHTML=jh;
+
+  // 부클래스
+  document.getElementById('subclassCard').innerHTML=
+    '<p class="subclass-title">당신의 부클래스 조합</p>'+
+    '<div class="subclass-tags">'+
+    '<span class="subclass-tag" style="background:'+ci.sub1.bg+';color:'+ci.sub1.c+';border-color:'+ci.sub1.c+'44">+ '+ci.sub1.n+'</span>'+
+    '<span class="subclass-tag" style="background:'+ci.sub2.bg+';color:'+ci.sub2.c+';border-color:'+ci.sub2.c+'44">+ '+ci.sub2.n+'</span>'+
+    '</div>'+
+    '<p style="font-size:12px;color:rgba(200,185,235,.55);margin-top:10px;line-height:1.6">'+
+    ci.e+' '+ci.n+' + '+ci.sub1.n+' → <strong style="color:'+ci.sub1.c+'">'+ci.adv+'</strong><br>'+ci.advDesc+'</p>';
+
+  // 로드맵
+  var rh='';
+  for(var k=0;k<ci.road.length;k++){
+    var r=ci.road[k];
+    rh+='<div class="rstep"><div class="rleft"><div class="rdot" style="background:'+r.c+';color:'+r.tc+'">'+(k+1)+'</div>'+(k<ci.road.length-1?'<div class="rline"></div>':'')+'</div><div><p class="rperiod">'+r.p+'</p><p class="rtitle">'+r.t+'</p><p class="rdesc">'+r.d+'</p></div></div>';
+  }
+  document.getElementById('roadCard').innerHTML=rh;
+
+  document.getElementById('fullResult').classList.add('on');
+  document.getElementById('fullResult').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ===== 결제 ===== */
 function isPaid(){try{return localStorage.getItem(SKEY)==='true';}catch(e){return false;}}
-function markPaid(p){try{localStorage.setItem(SKEY,'true');localStorage.setItem('isekai_plan',p);}catch(e){}}
+function markPaid(){try{localStorage.setItem(SKEY,'true');}catch(e){}}
 
 function initPaid(){
   if(!isPaid()) return;
-  var ids=['basicBtn','legendBtn'];
-  for(var i=0;i<ids.length;i++){var b=document.getElementById(ids[i]);if(b){b.textContent='결제 완료';b.classList.add('used');b.disabled=true;}}
-  document.getElementById('successDiv').classList.add('on');
+  var btn=document.getElementById('mainPayBtn');
+  if(btn){btn.textContent='결제 완료 — 전체 공개됨';btn.classList.add('used');btn.disabled=true;}
+  if(document.getElementById('resultArea').style.display!=='none') showFullResult();
 }
 
-function openPayModal(plan,amount){
+function openPayModal(){
   if(isPaid()){alert('이미 각성석을 사용하셨습니다.');return;}
-  curPlan=plan; curAmount=amount;
-  document.getElementById('modalTitle').textContent=plan==='legend'?'전설 각성석 결제':'각성석 결제';
-  document.getElementById('modalPrice').textContent=amount.toLocaleString()+'원';
   document.getElementById('payModal').classList.add('on');
 }
 function closePayModal(){document.getElementById('payModal').classList.remove('on');}
-
 function selPayMethod(idx,name){
   curPayMethod=name;
   for(var i=0;i<3;i++) document.getElementById('pm'+i).classList.toggle('active',i===idx);
 }
 
 function requestPay(){
-  /* ============================================================
-     포트원(아임포트) 결제 연동 코드
-     포트원 심사 완료 후 아래 값을 교체하세요:
-     - userCode: 포트원 가맹점 식별코드 (imp_xxxxxxxx)
-     - pg: 사용할 PG사 코드
-       카카오페이 → kakaopay
-       네이버페이  → naverpay
-       신용카드    → html5_inicis (KG이니시스)
-  ============================================================ */
-  var IMP_CODE = 'imp_xxxxxxxx'; // ← 포트원 가맹점 식별코드로 교체
-
-  var pgCode = 'kakaopay';
+  var IMP_CODE='imp_xxxxxxxx'; // ← 포트원 가맹점 식별코드로 교체
+  var pgCode='kakaopay';
   if(curPayMethod==='네이버페이') pgCode='naverpay';
   if(curPayMethod==='신용카드') pgCode='html5_inicis';
-
-  var orderId = 'isekai_' + Date.now();
-
-  /* 포트원 SDK가 로드된 경우 실제 결제 실행 */
-  if(typeof IMP !== 'undefined'){
+  var orderId='isekai_'+Date.now();
+  if(typeof IMP!=='undefined'){
     IMP.init(IMP_CODE);
-    IMP.request_pay({
-      pg: pgCode,
-      pay_method: curPayMethod==='신용카드'?'card':'easy_pay',
-      merchant_uid: orderId,
-      name: curPlan==='legend'?'전설 각성석 — 이세계에서재능발견':'각성석 — 이세계에서재능발견',
-      amount: curAmount,
-      buyer_name: '각성 용사',
-      buyer_email: '',
-    }, function(rsp){
-      if(rsp.success){
-        onPaySuccess(rsp);
-      } else {
-        alert('결제가 취소되었습니다: '+rsp.error_msg);
-      }
-    });
+    IMP.request_pay({pg:pgCode,pay_method:curPayMethod==='신용카드'?'card':'easy_pay',merchant_uid:orderId,name:'각성석 — 이세계에서재능발견',amount:3900,buyer_name:'각성 용사',buyer_email:''},
+    function(rsp){if(rsp.success){onPaySuccess();}else{alert('결제가 취소되었습니다: '+rsp.error_msg);}});
   } else {
-    /* 포트원 SDK 미로드 시 테스트 흐름 (심사용) */
     closePayModal();
-    onPaySuccess({imp_uid:'test_'+orderId, merchant_uid:orderId});
+    onPaySuccess();
   }
 }
 
-function onPaySuccess(rsp){
-  markPaid(curPlan);
-  closePayModal();
-  var name=window._adv||'혁신 설계자';
-  var base=window._base||'⚔️ 전략 군주형';
-  document.getElementById('scName').textContent=base+' → '+name;
-  document.getElementById('scDesc').textContent='결제가 완료되었습니다.\n전체 결과에서 최종전직 + 직업 매칭 + 로드맵을 확인하세요.';
+function onPaySuccess(){
+  markPaid(); closePayModal();
+  var ci=CI[currentTop];
+  document.getElementById('scName').textContent=ci.e+' '+ci.n+' → '+ci.adv;
+  document.getElementById('scDesc').textContent=ci.advDesc+'\n\n아래 전체 결과 보기 버튼을 눌러 직업 매칭과 로드맵을 확인하세요!';
   document.getElementById('successDiv').classList.add('on');
+  document.getElementById('paySection').style.display='none';
   document.getElementById('successDiv').scrollIntoView({behavior:'smooth',block:'center'});
-  var ids=['basicBtn','legendBtn'];
-  for(var i=0;i<ids.length;i++){var b=document.getElementById(ids[i]);if(b){b.textContent='결제 완료';b.classList.add('used');b.disabled=true;}}
+  var btn=document.getElementById('mainPayBtn');
+  if(btn){btn.textContent='결제 완료 — 전체 공개됨';btn.classList.add('used');btn.disabled=true;}
 }
 
-/* ========== 약관 ========== */
+/* ===== 약관 ===== */
 var TERMS={
-  service:{title:'이용약관',content:'<h3>제1조 (목적)</h3><p>본 약관은 이세계에서재능발견(이하 "회사")이 제공하는 AI 재능 분석 서비스(이하 "서비스")의 이용과 관련하여 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p><h3>제2조 (서비스 내용)</h3><p>회사는 이용자의 설문 응답을 AI로 분석하여 재능 유형, 최종전직 클래스, 직업 매칭, 성장 로드맵을 제공합니다. 본 서비스는 참고용 콘텐츠이며 전문 진로 상담을 대체하지 않습니다.</p><h3>제3조 (결제 및 이용권)</h3><p>각성석(3,900원) 및 전설 각성석(9,900원)은 1인 1회 구매 가능하며, 결제 완료 즉시 디지털 콘텐츠가 제공됩니다.</p><h3>제4조 (면책 조항)</h3><p>서비스 결과는 AI 분석에 기반한 참고 자료이며, 결과의 정확성을 100% 보장하지 않습니다. 진로 결정은 이용자 본인의 판단에 따릅니다.</p>'},
-  privacy:{title:'개인정보처리방침',content:'<h3>1. 수집하는 개인정보</h3><p>회사는 결제 처리를 위해 최소한의 정보(결제 정보)를 수집하며, 설문 응답 데이터는 익명으로 처리됩니다.</p><h3>2. 개인정보의 이용 목적</h3><p>수집된 정보는 서비스 제공, 결제 처리, 고객 문의 응대 목적으로만 사용됩니다.</p><h3>3. 개인정보의 보유 기간</h3><p>결제 관련 정보는 전자상거래법에 따라 5년간 보관됩니다.</p><h3>4. 개인정보관리책임자</h3><p>성명: 이은비 / 이메일: kdw8808@kakao.com</p>'},
-  refund:{title:'환불정책',content:'<h3>환불 정책 안내</h3><p>디지털 콘텐츠 특성상 결제 완료 및 콘텐츠 제공 이후에는 환불이 불가합니다. 단, 아래의 경우에는 환불이 가능합니다.</p><h3>환불 가능한 경우</h3><p>① 결제 완료 후 콘텐츠가 정상적으로 제공되지 않은 경우<br>② 시스템 오류로 인해 이중 결제된 경우</p><h3>환불 신청 방법</h3><p>고객센터 이메일(kdw8808@kakao.com)로 주문번호와 함께 환불 사유를 보내주시면 1~3 영업일 이내에 처리해드립니다.</p>'}
+  service:{title:'이용약관',content:'<h3>제1조 (목적)</h3><p>본 약관은 이세계에서재능발견이 제공하는 AI 재능 분석 서비스의 이용과 관련하여 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p><h3>제2조 (서비스 내용)</h3><p>이용자의 설문 응답을 AI로 분석하여 재능 유형, 최종전직 클래스, 직업 매칭, 성장 로드맵을 제공합니다. 본 서비스는 참고용 콘텐츠이며 전문 진로 상담을 대체하지 않습니다.</p><h3>제3조 (결제)</h3><p>각성석(3,900원)은 1인 1회 구매 가능하며, 결제 완료 즉시 디지털 콘텐츠가 제공됩니다.</p><h3>제4조 (면책)</h3><p>서비스 결과는 AI 분석에 기반한 참고 자료이며 결과의 정확성을 100% 보장하지 않습니다.</p>'},
+  privacy:{title:'개인정보처리방침',content:'<h3>1. 수집 항목</h3><p>결제 처리를 위한 최소한의 정보를 수집하며, 설문 응답 데이터는 익명으로 처리됩니다.</p><h3>2. 이용 목적</h3><p>서비스 제공, 결제 처리, 고객 문의 응대 목적으로만 사용됩니다.</p><h3>3. 보유 기간</h3><p>결제 관련 정보는 전자상거래법에 따라 5년간 보관됩니다.</p><h3>4. 개인정보관리책임자</h3><p>성명: 이은비 / 이메일: kdw8808@kakao.com</p>'},
+  refund:{title:'환불정책',content:'<h3>환불 정책</h3><p>디지털 콘텐츠 특성상 결제 완료 및 콘텐츠 제공 이후에는 환불이 불가합니다.</p><h3>환불 가능한 경우</h3><p>① 결제 완료 후 콘텐츠가 정상적으로 제공되지 않은 경우<br>② 시스템 오류로 인한 이중 결제의 경우</p><h3>환불 신청</h3><p>고객센터(kdw8808@kakao.com)로 주문번호와 환불 사유를 보내주시면 1~3 영업일 이내 처리해드립니다.</p>'}
 };
-
-function openTerms(type){
-  var t=TERMS[type];
-  document.getElementById('termsTitle').textContent=t.title;
-  document.getElementById('termsContent').innerHTML=t.content;
-  document.getElementById('termsModal').classList.add('on');
-}
+function openTerms(t){var d=TERMS[t];document.getElementById('termsTitle').textContent=d.title;document.getElementById('termsContent').innerHTML=d.content;document.getElementById('termsModal').classList.add('on');}
 function closeTerms(){document.getElementById('termsModal').classList.remove('on');}
 
 buildScreens();
 initPaid();
+startCounter();
 </script>
-
-<!-- 포트원 SDK (심사 완료 후 주석 해제) -->
 <!-- <script src="https://cdn.iamport.kr/v1/iamport.js"></script> -->
-
 </body>
 </html>
