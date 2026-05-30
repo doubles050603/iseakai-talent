@@ -3,7 +3,26 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>이세계에서 재능발견 — 여신의 간택</title>
+<title>이세계 재능 각성 테스트 — 나는 어떤 클래스일까? | 빌런 테스트</title>
+
+<!-- 검색엔진 노출용 -->
+<meta name="description" content="여신에게 간택받아 이세계로 소환된 나, 숨겨진 재능은? 20문항 정밀 분석으로 나의 최종전직 클래스와 빌런 기질까지 알려주는 이세계 재능 각성 테스트. MBTI보다 정확한 재능 분석."/>
+<meta name="keywords" content="이세계 테스트,재능 테스트,빌런 테스트,이세계 재능,최종전직,클래스 테스트,성격 테스트,MBTI,각성 테스트,진로 테스트"/>
+
+<!-- 카카오톡·페이스북 공유용 (Open Graph) -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="이세계 재능 각성 테스트 — 나는 어떤 클래스일까?"/>
+<meta property="og:description" content="여신에게 간택받은 나의 숨겨진 재능과 빌런 기질은? 20문항 정밀 분석으로 알아보는 나의 최종전직 클래스 ⚔️🔮💚🎨"/>
+<meta property="og:image" content="hero.png"/>
+<meta property="og:url" content="https://doubles050603.github.io/isekai-talent/"/>
+<meta property="og:site_name" content="이세계에서 재능발견"/>
+
+<!-- 트위터(X) 공유용 -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="이세계 재능 각성 테스트 — 나는 어떤 클래스일까?"/>
+<meta name="twitter:description" content="여신에게 간택받은 나의 숨겨진 재능과 빌런 기질은? 나의 최종전직 클래스를 확인해보세요 ⚔️"/>
+<meta name="twitter:image" content="hero.png"/>
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -222,6 +241,35 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
 .btn-pay-main.used{background:rgba(40,100,40,.4);box-shadow:none;cursor:default}
 .pay-once-notice{font-size:11px;color:rgba(200,185,235,.4)}
 
+/* 공유 섹션 */
+.share-section{background:linear-gradient(135deg,rgba(120,80,220,.15),rgba(29,158,117,.12));border:1px solid rgba(150,100,255,.3);border-radius:16px;padding:22px;margin-bottom:16px;text-align:center}
+.share-emoji{font-size:28px;display:block;margin-bottom:8px}
+.share-title{font-size:15px;font-weight:700;color:#f0e8ff;margin-bottom:5px}
+.share-sub{font-size:12px;color:rgba(200,185,235,.6);line-height:1.6;margin-bottom:16px}
+.share-btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.share-btn{flex:1;min-width:90px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;border-radius:14px;border:none;cursor:pointer;font-family:inherit;transition:transform .15s,opacity .15s}
+.share-btn:hover{transform:translateY(-2px);opacity:.9}
+.share-btn-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.share-btn-label{font-size:11px;font-weight:500}
+.sb-kakao{background:rgba(255,235,0,.12)}
+.sb-kakao .share-btn-icon{background:#FEE500}
+.sb-kakao .share-btn-label{color:#f0e8ff}
+.sb-link{background:rgba(120,80,220,.15)}
+.sb-link .share-btn-icon{background:#7a50d0;color:#fff}
+.sb-link .share-btn-label{color:#f0e8ff}
+.sb-x{background:rgba(255,255,255,.06)}
+.sb-x .share-btn-icon{background:#000;color:#fff}
+.sb-x .share-btn-label{color:#f0e8ff}
+.sb-more{background:rgba(29,158,117,.12)}
+.sb-more .share-btn-icon{background:#1D9E75;color:#fff}
+.sb-more .share-btn-label{color:#f0e8ff}
+
+/* 떠다니는 공유 버튼 (결과 화면에서만 노출) */
+.float-share{position:fixed;bottom:20px;right:20px;z-index:90;background:linear-gradient(135deg,#6a28c0,#1D9E75);color:#fff;border:none;border-radius:50px;padding:14px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 24px rgba(100,40,180,.5);display:none;align-items:center;gap:8px;animation:floatPulse 2.5s ease-in-out infinite}
+.float-share.on{display:flex}
+@keyframes floatPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.float-share-icon{font-size:16px}
+
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:100;align-items:center;justify-content:center;padding:16px}
 .modal-bg.on{display:flex}
 .modal{background:#120828;border:.5px solid rgba(140,90,255,.35);border-radius:20px;padding:28px 24px;width:100%;max-width:360px}
@@ -417,6 +465,33 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
   </div>
 </div>
 
+<!-- 공유 섹션 (결과 화면에서만 노출) -->
+<div id="shareSection" style="display:none">
+  <div class="share-section">
+    <span class="share-emoji">🔮</span>
+    <p class="share-title">내 클래스, 친구들은 뭐가 나올까?</p>
+    <p class="share-sub">결과를 공유하고 친구의 클래스도 확인해보세요!<br>당신은 어떤 빌런 기질을 숨기고 있었나요? 😈</p>
+    <div class="share-btns">
+      <button class="share-btn sb-kakao" onclick="shareKakao()">
+        <span class="share-btn-icon">💬</span>
+        <span class="share-btn-label">카카오톡</span>
+      </button>
+      <button class="share-btn sb-x" onclick="shareX()">
+        <span class="share-btn-icon">𝕏</span>
+        <span class="share-btn-label">X(트위터)</span>
+      </button>
+      <button class="share-btn sb-link" onclick="copyLink()">
+        <span class="share-btn-icon">🔗</span>
+        <span class="share-btn-label">링크 복사</span>
+      </button>
+      <button class="share-btn sb-more" onclick="shareNative()">
+        <span class="share-btn-icon">📤</span>
+        <span class="share-btn-label">더보기</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <p class="slabel">용사들의 후기</p>
 <div class="rv-grid">
   <div class="rv"><p class="rvs">★★★★★</p><p class="rvt">"빌런 클래스가 나와서 깜짝 놀랐는데 너무 공감됐어요. 친구들한테 바로 공유했어요."</p><p class="rvu">— 김지우, 19세</p></div>
@@ -479,6 +554,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#08041a;color:#f0e8ff;min-
     <button class="terms-close" onclick="closeTerms()">확인</button>
   </div>
 </div>
+
+<!-- 떠다니는 공유 버튼 -->
+<button class="float-share" id="floatShare" onclick="scrollToShare()">
+  <span class="float-share-icon">📤</span> 친구에게 공유하기
+</button>
 
 <script>
 /* ===== 20문항 리커트 설문 ===== */
@@ -819,6 +899,7 @@ function showResult(){
   document.getElementById('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
 
   window._top=top; window._vLevel=vLevel;
+  showShareUI();
   if(isPaid()) showFullResult();
 }
 
@@ -995,10 +1076,77 @@ var TERMS={
 function openTerms(t){var d=TERMS[t];document.getElementById('termsTitle').textContent=d.title;document.getElementById('termsContent').innerHTML=d.content;document.getElementById('termsModal').classList.add('on');}
 function closeTerms(){document.getElementById('termsModal').classList.remove('on');}
 
+/* ===== 공유 기능 ===== */
+var SHARE_URL='https://doubles050603.github.io/isekai-talent/';
+
+function getShareText(){
+  var ci=CI[currentTop];
+  if(ci && document.getElementById('fullResult').classList.contains('on')){
+    return '나는 이세계에서 '+ci.e+' '+ci.n+'(으)로 각성했어! 너는 어떤 클래스야? 🔮 빌런 기질까지 알려주는 이세계 재능 테스트 👇';
+  }
+  return '여신에게 간택받은 나의 숨겨진 재능은? 이세계 재능 각성 테스트 🔮 너의 최종전직 클래스를 확인해봐 👇';
+}
+
+function showShareUI(){
+  document.getElementById('shareSection').style.display='block';
+  document.getElementById('floatShare').classList.add('on');
+}
+
+function scrollToShare(){
+  document.getElementById('shareSection').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function copyLink(){
+  var text=getShareText()+'\n'+SHARE_URL;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){alert('✅ 링크가 복사되었어요!\n카카오톡, 인스타 등에 붙여넣기 하세요.');}).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  var ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{document.execCommand('copy');alert('✅ 링크가 복사되었어요!');}catch(e){prompt('아래 링크를 복사하세요:',text);}
+  document.body.removeChild(ta);
+}
+
+function shareX(){
+  var url='https://twitter.com/intent/tweet?text='+encodeURIComponent(getShareText())+'&url='+encodeURIComponent(SHARE_URL);
+  window.open(url,'_blank','width=550,height=420');
+}
+
+function shareKakao(){
+  /* 카카오 SDK가 없으면 링크 복사로 대체 (카톡에 붙여넣기 안내) */
+  if(typeof Kakao!=='undefined' && Kakao.Share){
+    Kakao.Share.sendDefault({
+      objectType:'feed',
+      content:{title:'이세계 재능 각성 테스트',description:getShareText(),imageUrl:SHARE_URL+'hero.png',link:{mobileWebUrl:SHARE_URL,webUrl:SHARE_URL}},
+      buttons:[{title:'나도 테스트하기',link:{mobileWebUrl:SHARE_URL,webUrl:SHARE_URL}}]
+    });
+  } else {
+    var text=getShareText()+'\n'+SHARE_URL;
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){alert('💬 카카오톡 공유 문구가 복사되었어요!\n카카오톡 대화창에 붙여넣기 하면 됩니다.');}).catch(function(){fallbackCopy(text);});}
+    else fallbackCopy(text);
+  }
+}
+
+function shareNative(){
+  if(navigator.share){
+    navigator.share({title:'이세계 재능 각성 테스트',text:getShareText(),url:SHARE_URL}).catch(function(){});
+  } else {
+    copyLink();
+  }
+}
+
 buildScreens();
 initPaid();
 startCounter();
 </script>
 <!-- <script src="https://cdn.iamport.kr/v1/iamport.js"></script> -->
+
+<!-- 카카오톡 공유 SDK (카카오 JavaScript 앱키 발급 후 아래 2줄 주석 해제 + YOUR_KAKAO_KEY 교체)
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>Kakao.init('YOUR_KAKAO_KEY');</script>
+-->
 </body>
 </html>
